@@ -4,9 +4,9 @@
 
 -----
 
-* [Your Thrift Co.](https:......) - Live website
+* [Your Thrift Co.](https://your-thrift-co.herokuapp.com/) - Live website
 
-* [Github](https://github.com/Shelby219/T2A2_marketplace) - Github repository
+* [Github](https://github.com/Shelby219/Your-Thrift-Co.) - Github repository
 
 -----
 ## Identification of the problem you are trying to solve by building this particular marketplace app.
