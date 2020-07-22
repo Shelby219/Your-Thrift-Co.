@@ -56,7 +56,7 @@ Another notable purpose of the application is the ability for users to, in a sen
 - Search Function- 
 
 
------
+
 ### Sitemap
 
 ![Site Map](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/SiteMap.png)
@@ -64,7 +64,7 @@ Another notable purpose of the application is the ability for users to, in a sen
 ### Screenshots
 
 
------
+
 ### Target audience
 
 The target audience of the first release of the application will be Women, particularly between ages 16-35. The reason for this is like other fashion marketplace applications, millennial and Gen Z consumers is the market to primarily aim for. This being as this age group is the group where trends are being set and followed, in addition to being conscious of sustainability. With popular influencer on social media highlighting and promoting sustainable fashion practices, this is the age group that primarily pays attention to these messages. 
@@ -109,10 +109,7 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 -----
 ## An ERD for your app
 
-
-
-
-
+![ERD](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/ERD.png)
 
 -----
 ## Explain the different high-level components (abstractions) in your app
@@ -125,7 +122,11 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 -----
 ## Detail any third party services that your app will use
 
+- Bootstrap
 
+- Devise
+
+-
 
 
 

@@ -1,0 +1,43 @@
+
+<header>
+<%= render "shared/nav" %>
+</header>
+<body>
+           <main>
+                    <section class = "core-container">
+                        <div class = "core-child"> 
+                                <h2 class = "page-headings" >Contact<span>.</span><br><b>Get in touch</b></h2>
+                                    <div class = "core-info-content">
+                                    <div class = "form-group">
+                                    <!-- https://mailthis.to/-->
+                                        <form accept-charset="UTF-8" action="https://usebasin.com/f/4505182aa564" method="POST" id="email-form">
+                                        <div class="form-group row">  
+                                            <label for="name" >Name:</label>
+                                            <input   type="text" name="name" placeholder="Your name..." id="name">
+                                        </div>
+                                        <div class="form-group row"> 
+                                            <label for="_replyto" >Email:</label>
+                                            <input  type="text" name="_replyto" placeholder="Your email..." id="_replyto">
+                                        </div>
+                                        <div class="form-group row"> 
+                                            <label for="message" >Message:</label>
+                                            <textarea  name="message" placeholder="Enter your message here..." id="message"></textarea>
+                                        </div>
+                                        <div class="form-group row"> 
+                                            <input type="hidden" name="_subject" value="abc">
+                        
+                                            <input type="hidden" name="_after" value="contact.html"/>
+                        
+                                            <input type="hidden" id="only_for_bots" name="only_for_bots">
+                        
+                                            <input type="submit" value="Send" >
+                                        </form>
+                            </div>
+                        
+                        
+                                    </div>
+                        </div>
+                    </section>
+                </main>
+</body>
+<%= render "shared/footer" %>

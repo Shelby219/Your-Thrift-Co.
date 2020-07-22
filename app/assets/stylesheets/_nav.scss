@@ -1,0 +1,162 @@
+/* The Nav Menu*/
+.main-nav  {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+ .navbar-brand {
+    font-family: 'Crimson Text', serif;
+ }
+ .navbar-brand:hover, .fa-shopping-cart:hover{
+   background-color: transparent;
+   border-color: transparent;
+   color: #a88a72 !important;
+   cursor: pointer;
+ }
+ 
+ .search-button {
+   margin-top: 20px;
+ }
+ .search-button input.form-control {
+   width: 150px;
+   margin-left: 30px;
+ }
+ .search-button button.btn {
+  
+ }
+ .search-button button.btn:hover{
+   color:white !important;
+ }
+ 
+ .nav-item a,.nav-item li, .dropdown-item li a {
+   color:black;
+ }
+ 
+ #navbarDropdown, .dropdown-item li a {
+   font-family: 'Crimson Text', serif;
+   font-size: 1.1rem;
+   color:black;
+  
+ }
+ .dropdown-item li a {
+   margin-left: -25px;
+ }
+ 
+ .dropdown-menu {
+   width: 30px; 
+   margin-left: 30px;
+   position: relative;
+   background-color: transparent;
+   border-color: transparent;
+ }
+ 
+ .dropdown-item:hover {
+   background-color: transparent;
+   border-color: transparent;
+ }
+ ul.nav-item {
+   display: inline-block;
+ }
+  li.user-buttons {
+   list-style-type: none;
+   font-size: 0.75rem;
+  
+ }
+ 
+ .user-buttons  a, .user-buttons-do {
+   font-family: 'Crimson Text', serif;
+   font-size: 1rem !important;
+   color:black !important;
+   margin-left: -38px;
+ }
+ .dropdown-item li a:focus {
+   color:white !important;
+ }
+ 
+ #navbarDropdown:hover, .closebtn:hover  {
+   color:white !important;
+   background-color: #a88a72; 
+ }
+ .user-buttons-do:hover, .dropdown-item li a:hover {
+   background-color: transparent;
+   color: white;
+ }
+  
+  .dropdown:hover{
+   background-color:  #a88a72; 
+   border-style: none;
+ }
+ .user-buttons a:hover{
+   background-color: transparent;
+   color: white !important;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /* The sidebar menu */
+ .sidebar {
+     height: 100%; /* 100% Full-height */
+     width: 0; /* 0 width - change this with JavaScript */
+     position: fixed; /* Stay in place */
+     z-index: 1; /* Stay on top */
+     top: 0;
+     left: 0;
+     background-color: #a88a72; 
+     overflow-x: hidden; /* Disable horizontal scroll */
+     padding-top: 60px; /* Place content 60px from the top */
+     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+   }
+   
+   /* The sidebar links */
+   .sidebar a {
+     padding: 8px 8px 8px 32px;
+     text-decoration: none;
+     font-size: 25px;
+     color: #818181;
+     display: block;
+     transition: 0.3s;
+   }
+   
+   /* When you mouse over the navigation links, change their color */
+   .sidebar a:hover {
+     color: #f1f1f1;
+   }
+   
+   /* Position and style the close button (top right corner) */
+   .sidebar .closebtn {
+     position: absolute;
+     top: 0;
+     right: 25px;
+     font-size: 36px;
+     margin-left: 50px;
+   }
+   
+   /* The button used to open the sidebar */
+   .openbtn {
+     font-size: 20px;
+     cursor: pointer;
+     background-color: #f8f9fa;
+     color:  #a88a72; 
+     padding: 10px 15px;
+     border: none;
+   }
+   
+   .openbtn:hover {
+     color:  black;
+   }
+   
+   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+   #main {
+     transition: margin-left .5s; /* If you want a transition effect */
+     padding: 20px;
+   }
+   
+   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+   @media screen and (max-height: 450px) {
+     .sidebar {padding-top: 15px;}
+     .sidebar a {font-size: 18px;}
+   }

@@ -1,0 +1,79 @@
+// Place all the styles related to the page controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+    
+
+@import "variables"; 
+
+/*****CONTACT MAIN CONTENT******/
+
+#name, #_replyto, #message {
+    display: block;
+    padding: 10px;
+    margin: 20px 0px 20px 0px;
+    border: 1px solid #ccc;
+    width: 600px;
+    align-self: left;
+}
+#message {
+    height: 300px;     
+}
+
+#email-form {
+    margin-right: 20px; 
+    margin-left: 20px; 
+}
+.form-label{
+ background-color: $alternate-color;
+ border-radius: 25px;
+ padding: 5px;
+ color: $text-color;
+ font-size: 1rem;
+}
+
+input[type=submit] {
+    background-color: $heading-color;
+    color: $white-color;
+    padding: 12px 20px;
+    border-radius: 30px; 
+    padding: 10px 20px 10px 20px;
+    font-family: $body-font-family;
+    font-size: 1rem;
+   
+  }
+input[type=submit]:hover {
+    background-color: $alternate-color;
+    cursor: pointer;
+    color: $hover-color;
+  }
+input[type=submit]:active  {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+/* Mobile Styles */ /** CONTACT CONTENT */
+@media only screen 
+and (max-device-width: 767px) 
+and (-webkit-min-device-pixel-ratio: 1) {
+    #name, #_replyto, #message {
+            width: 250px;
+    }
+  
+}
+/* Tablet Styles */ /** CONTACT CONTENT */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (-webkit-min-device-pixel-ratio: 1) {
+    #name, #_replyto, #message {
+            width: 400px;
+    }
+    
+  
+}
+/* Desktop Styles */ /* CONTACT CONTENT */
+@media only screen and (min-width: 996px) {
+   
+
+}
+/*****CONTACT MAIN CONTENT******/
