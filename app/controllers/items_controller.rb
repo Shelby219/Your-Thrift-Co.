@@ -17,11 +17,9 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    # if the user is not logged in redirect to the login page
-    # else redirect to the item form page
+    # If the user is logged in it will redirect to a new listing form, else it will redirect to sign up
     if user_signed_in?
-      # if the user has created a profile show the items form else redirect to creating a profile page
-      if current_user.profile
+      if current_user.id
         @item = Item.new
       else
           redirect_to new_user_path
