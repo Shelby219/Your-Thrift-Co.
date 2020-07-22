@@ -39,28 +39,32 @@ Another notable purpose of the application is the ability for users to, in a sen
 
 - Users - This main feature is where the user is able to sign up to an account, after doing so be able to log in and/or edit account details. The user is also able to view a profile dashboard in which they can see items that they have sold or have purchased. Other users can view other user dashboards also, however they can only view what the user has for sale and any reviews. 
 
-- Items - This functionality involves a few components. The user once logged in is able to browse through items by category and view them either via category pages, or individually and also via clicking on a user   
+- Items - This functionality involves a few components. The user once logged in is able to browse through items by category and view them either via category pages, or individually and also via clicking on a user profile the items up for sale by that user will be available. 
 
-- Categories
+- Categories - The feature enables items to be categorized which them ables viewing via categories, which will enable and search and filter feature functionality for future.
 
-- Comments - 
+- Shopping Bag - The feature enables users to when purchasing items, to add them to their shopping bags. The shopping bag will work via displaying the items the user would like to purchase, grouping them via seller. Then displaying a button to purchase each item. The idea will be the user can purchase groups of items grouped together via seller, however this feature will be for future. 
 
-- Followers - 
+- Comments - NTH - This feature enables users to leave comments on item listings. 
 
-- Likes on Items - 
+- Followers - NTH - This feature enables users to follow other users. 
 
-- Shopping Bag - 
+- Likes on Items - NTH - This feature enables users to like items that are listed. This enables the user to then via a list of liked items. 
 
-- Reviews - 
+- Reviews - NTH - The feature enables users to leave a review via a completed purchase on other users. So if a user has made a purchase from another user, the seller can leave a review on the buyer and vise versa. This allows for users to maintain a review rating out of 5 stars. 
+
+- Search Function- 
 
 
-
+-----
 ### Sitemap
 
-
+![Site Map](https://github.com/Shelby219/Your-Thrift-Co./tree/master/docs/T2A2 - Site Map.png)
 
 ### Screenshots
 
+
+-----
 ### Target audience
 
 The target audience of the first release of the application will be Women, particularly between ages 16-35. The reason for this is like other fashion marketplace applications, millennial and Gen Z consumers is the market to primarily aim for. This being as this age group is the group where trends are being set and followed, in addition to being conscious of sustainability. With popular influencer on social media highlighting and promoting sustainable fashion practices, this is the age group that primarily pays attention to these messages. 
