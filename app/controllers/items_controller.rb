@@ -83,7 +83,7 @@ class ItemsController < ApplicationController
 
     def set_user_item
       id = params[:id]
-      @item = current_user.listings.find_by_id(id)
+      @item = current_user.items.find_by_id(id)
   
       if @item == nil
           redirect_to item_path
@@ -91,6 +91,6 @@ class ItemsController < ApplicationController
   end
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :price, :description, :size, :colour, :material, :location, :shipping_price, :decimal)
+      params.require(:item).permit(:title, :price, :description, :size, :colour, :material, :location, :shipping,  images: [])
     end
 end

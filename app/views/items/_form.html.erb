@@ -1,62 +1,32 @@
-<%= form_with(model: item, local: true) do |form| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-      <ul>
-        <% item.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
+<%= form_with(model: @item, local:true) do |f| %>
+  <%= render "shared/error_messages" %>
+  
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+  <%= f.label :title %>
+  <%= f.text_field :title, placeholder: '...' %><br>
+  <%= f.label :price %>
+  <%= f.text_field :price %><br>
+  <%= f.label :description %>
+  <%= f.text_area :description, size: '30x5', placeholder: '...' %><br>
+  <%= f.label :size %>
+  <%= f.text_field  :size %><br>
+  <%= f.label :colour %>
+  <%= f.text_field  :colour %><br>
+  <%= f.label :material %>
+  <%= f.text_field  :material %><br>
+  <%= f.label :location %>
+  <%= f.text_field  :location%><br>
+  <%= f.label :shipping %>
+  <%= f.text_field  :shipping%><br>
+  <%= f.label :images %> 
+  <%= f.file_field :images, multiple: true , accept: 'image/png,image/gif,image/jpeg,image/jpg' %><br>
 
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.text_field :size %>
-  </div>
 
-  <div class="field">
-    <%= form.label :colour %>
-    <%= form.text_field :colour %>
-  </div>
-
-  <div class="field">
-    <%= form.label :material %>
-    <%= form.text_field :material %>
-  </div>
-
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div class="field">
-    <%= form.label :shipping_price %>
-    <%= form.text_field :shipping_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :decimal %>
-    <%= form.text_field :decimal %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= f.submit %>
 <% end %>
+
+
+

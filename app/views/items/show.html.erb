@@ -1,5 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+<%= render 'shared/nav'%>   
+
+
+
+
+<div class="row">
+  <div class="col-md-8">
+ 
+        <div class="row">
+        <% @item.images.each do |image|%>
+              <div class="col-md-6" >
+                <%= image_tag image, class: "d-block w-100" %>
+              </div>
+        <% end %>
+        </div>
+  </div>
 <p>
   <strong>Title:</strong>
   <%= @item.title %>
@@ -36,14 +52,12 @@
 </p>
 
 <p>
-  <strong>Shipping price:</strong>
-  <%= @item.shipping_price %>
+  <strong>Shipping:</strong>
+  <%= @item.shipping%>
 </p>
 
-<p>
-  <strong>Decimal:</strong>
-  <%= @item.decimal %>
-</p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
+<% if(current_user && current_user.id && (current_user.id == @item.user_id)) %>
+    <%= link_to 'Edit', edit_item_path(@item) %> 
+<% end %>
 <%= link_to 'Back', items_path %>
