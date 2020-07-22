@@ -59,7 +59,7 @@ Another notable purpose of the application is the ability for users to, in a sen
 -----
 ### Sitemap
 
-![Site Map](https://github.com/Shelby219/Your-Thrift-Co./tree/master/docs/SiteMap.png)
+![Site Map](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/SiteMap.png)
 
 ### Screenshots
 
