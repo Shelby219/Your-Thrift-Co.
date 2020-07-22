@@ -13,10 +13,17 @@
                   Womenswear
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <nav class="dropdown-item">
-                        
-                  </nav>
-                </div>  
+                <nav class="dropdown-item">
+                      <li>
+                      <%= link_to("All", items_path)%>
+                      </li>
+                      <% Category.all.each do |category| %> 
+                      <li>
+                      <%= link_to category.name, items_path(category: category.name) %>
+                      </li>
+                        <% end %>
+                </nav>
+              </div> 
           </div>
 
           <ul class = "nav-item">  
