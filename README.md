@@ -37,7 +37,27 @@ Another notable purpose of the application is the ability for users to, in a sen
 
 ### Functionality / features
 
+- Users - This main feature is where the user is able to sign up to an account, after doing so be able to log in and/or edit account details. The user is also able to view a profile dashboard in which they can see items that they have sold or have purchased. Other users can view other user dashboards also, however they can only view what the user has for sale and any reviews. 
+
+- Items - This functionality involves a few components. The user once logged in is able to browse through items by category and view them either via category pages, or individually and also via clicking on a user   
+
+- Categories
+
+- Comments - 
+
+- Followers - 
+
+- Likes on Items - 
+
+- Shopping Bag - 
+
+- Reviews - 
+
+
+
 ### Sitemap
+
+
 
 ### Screenshots
 
