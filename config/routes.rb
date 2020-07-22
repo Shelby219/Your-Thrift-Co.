@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users
+  resources :items
  # Root page
   root 'pages#home'  
-
-
-
-
+ 
   # Pages just for Viewing 
   get '/contact', to: 'pages#contact'
   get '/about', to: 'pages#about'
   get '/terms', to: 'pages#terms'
   get '/support', to: 'pages#support'
   get '/privacy', to: 'pages#privacy'
+
+    # .....
   
 
 
