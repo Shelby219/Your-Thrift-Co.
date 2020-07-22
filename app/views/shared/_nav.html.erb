@@ -10,7 +10,7 @@
 
           <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Womenswear
+                  Apparel
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <nav class="dropdown-item">
@@ -21,11 +21,14 @@
                       <li>
                       <%= link_to category.name, items_path(category: category.name) %>
                       </li>
+                      
                         <% end %>
+                        
                 </nav>
               </div> 
           </div>
-
+          
+          
           <ul class = "nav-item">  
             <li class = " user-buttons">
               <%= link_to 'Sell My Clothes', new_item_path, class: "user-buttons-do" %>
@@ -49,7 +52,7 @@
       <button class="openbtn" onclick="openNav()"><i class="fas fa-bars"></i></button>
     </div>
 
-    <a class="navbar-brand" href="/">Your Thrift Co.</a>
+    <a class="navbar-brand" href="/">YOUR THRIFT CO.</a>
 
     <i class="fas fa-shopping-bag"></i>
   

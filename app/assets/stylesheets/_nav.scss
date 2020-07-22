@@ -2,17 +2,17 @@
 .main-nav  {
     display: flex;
     justify-content: space-evenly;
+    background-color: white !important;
   }
  .fa-shopping-bag  {
    font-size: 20px;
  }       
  .navbar-brand {
-    font-family: 'Crimson Text', serif;
+   letter-spacing: 2px;
  }
  .navbar-brand:hover, .fa-shopping-cart:hover{
    background-color: transparent;
    border-color: transparent;
-   color: #a88a72 !important;
    cursor: pointer;
  }
  
@@ -22,6 +22,7 @@
  .search-button input.form-control {
    width: 150px;
    margin-left: 30px;
+   border-radius: 25px;
  }
  .search-button button.btn {
   
@@ -31,13 +32,12 @@
  }
  
  .nav-item a,.nav-item li, .dropdown-item li a {
-   color:black;
+   color:white;
  }
  
  #navbarDropdown, .dropdown-item li a {
-   font-family: 'Crimson Text', serif;
    font-size: 1.1rem;
-   color:black;
+   color:white;
   
  }
  .dropdown-item li a {
@@ -66,9 +66,8 @@
  }
  
  .user-buttons  a, .user-buttons-do {
-   font-family: 'Crimson Text', serif;
    font-size: 1rem !important;
-   color:black !important;
+   color:white !important;
   
  }
  .dropdown-item li a:focus {
@@ -76,21 +75,21 @@
  }
  
  #navbarDropdown:hover, .closebtn:hover  {
-   color:white !important;
-   background-color: #a88a72; 
+  color:grey !important;
+
  }
  .user-buttons-do:hover, .dropdown-item li a:hover {
    background-color: transparent;
-   color: white;
+   color:grey !important;
  }
   
   .dropdown:hover{
-   background-color:  #a88a72; 
+  
    border-style: none;
  }
  .user-buttons a:hover{
    background-color: transparent;
-   color: white !important;
+   color:grey !important;
  }
  
  
@@ -107,7 +106,7 @@
      z-index: 1; /* Stay on top */
      top: 0;
      left: 0;
-     background-color: #a88a72; 
+     background-color: black;
      overflow-x: hidden; /* Disable horizontal scroll */
      padding-top: 60px; /* Place content 60px from the top */
      transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
@@ -118,7 +117,7 @@
      padding: 8px 8px 8px 32px;
      text-decoration: none;
      font-size: 25px;
-     color: #818181;
+     color: white;
      display: block;
      transition: 0.3s;
    }
@@ -141,8 +140,8 @@
    .openbtn {
      font-size: 20px;
      cursor: pointer;
-     background-color: #f8f9fa;
-     color:  #a88a72; 
+     background-color: white;
+     color:  black;
      padding: 10px 15px;
      border: none;
    }
