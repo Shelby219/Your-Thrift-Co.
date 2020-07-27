@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_user_item, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
     
-  # GET /items
+  # GET /items  
   # GET /items.json
   def index
     @items = Item.all
