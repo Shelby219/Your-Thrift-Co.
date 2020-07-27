@@ -9,6 +9,8 @@
 }
 .index-item-wrapper:hover a {
   background-color: transparent !important;
+  text-decoration: none;
+  color:grey !important;
 }
 
 .img-size {
@@ -20,7 +22,7 @@
     margin-left: 10px;
   }
 .image-wrapper {
-  border: 1px solid #000; 
+  border: 1px solid lightgrey; 
   margin: 20px;
 }
 
@@ -38,4 +40,13 @@
 
  .show-image {
    width: 50%;
+ }
+ .carousel-control-prev:hover, .carousel-control-next:hover {
+  background-color: transparent !important;
+ } 
+
+ .main-show-text {
+     padding: 20px;
+  
+
  }

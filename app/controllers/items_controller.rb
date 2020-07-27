@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+  
   end
 
   # GET /items/new
@@ -96,7 +97,7 @@ class ItemsController < ApplicationController
       if @item == nil
           redirect_to item_path
       end
-  end
+    end
     # Only allow a list of trusted parameters through.
     def item_params
       params.require(:item).permit(:title, :price, :description, :size, :colour, :material, :location, :shipping, :category_id, images: [])

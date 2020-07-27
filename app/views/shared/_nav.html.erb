@@ -37,6 +37,13 @@
               <li class = "user-buttons">
                 <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "user-buttons-do"%>
               </li>
+              <li class = "user-buttons">
+              <%= link_to 'View Profile', user_path, class: "user-buttons-do"%>
+              </li>
+              <li class = "user-buttons">
+                <%= link_to "Edit Profile", edit_user_registration_path, class: "user-buttons-do"%>
+              </li>
+             
             <% else %>
               <li class = "user-buttons">
                 <%= link_to "Log In", new_user_session_path(user_type: "returning_user"), class: "user-buttons-do"%>

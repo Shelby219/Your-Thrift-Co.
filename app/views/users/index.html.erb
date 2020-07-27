@@ -1,0 +1,12 @@
+
+<%= render 'shared/nav'%> 
+
+<% @users.each do |user| %>
+    <%= link_to user.username, user %>
+    <%= user.email %>
+<% end %>
+
+
+<%= link_to "All users", users_path %>
+
+<%= render 'shared/footer'%> 

@@ -1,0 +1,52 @@
+<%= render 'shared/nav'%> 
+
+<%= link_to "All users", users_path %>
+<main class = "main-container" >
+        <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar, class: "img-fluid avatar-img" %>
+        <% end %>
+       
+<div class = "main-inner-text" >
+            <%= @user.username %><br>
+            <% if(current_user && current_user.id && (current_user.id == @user.id)) %>
+             <%= @user.email %>
+            <% end %>
+        <% if(current_user && current_user.id && (current_user.id == @user.id)) %>
+        <%= link_to "Edit Profile", edit_user_registration_path %> 
+        <% end %>
+    </div>
+  
+</main>
+
+
+<section class="container ">
+          <div class="column"> 
+            <div class="row">   
+                  <% @user.items.each do |item| %>
+                    <div class="column index-item-wrapper">
+                      <%= link_to item do %>
+                        <div class = "image-wrapper">
+                        <div class="column">
+                            <%= image_tag item.images[0], :class => "img-size" %> <br>
+                            <div class="item-title-price">
+                            <%= item.title %><br>
+                            <span>$<%= item.price %></span>
+                            </div>  
+                           <% end %>
+                        </div>  
+                        <div class="column edit-delete-index">
+                            <% if(current_user && current_user.id && (current_user.id == item.user_id)) %>
+                            <%= link_to 'Edit', edit_item_path(item) %> 
+                            <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %> 
+                            <% end %>
+                        </div>
+                        </div>
+                      <%end%>
+            </div>
+        </div>
+  </div>
+            
+</section>
+
+
+<%= render 'shared/footer'%> 

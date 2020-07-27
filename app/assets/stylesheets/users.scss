@@ -1,0 +1,22 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.main-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.main-inner-text {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 50px;
+    justify-content: center;
+}
+
+.avatar-img {
+    width: 200px;
+    height: auto;
+}

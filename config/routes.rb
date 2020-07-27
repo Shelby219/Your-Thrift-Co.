@@ -2,16 +2,18 @@ Rails.application.routes.draw do
 
 
   devise_for :users
+  resources :users
 
   #additional routes 
   devise_scope :user do
     get 'sign_in', to: 'devise/sessions#new'
-    get 'users', to: 'devise/sessions#new'
+    #get 'users', to: 'devise/sessions#new'
   end
 
 
-
   resources :items
+  #get 'sign_in', to: 'items/user'
+
  # Root page   
   root 'pages#home'  
  
