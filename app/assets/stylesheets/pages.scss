@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
     
+   
 
 @import "variables"; 
 
@@ -76,4 +77,16 @@ and (-webkit-min-device-pixel-ratio: 1) {
    
 
 }
-/*****CONTACT MAIN CONTENT******/
+/*****HOME MAIN CONTENT******/
+
+.home-page-slide {
+  z-index: -1;
+  
+}
+.home-page-slide-show {
+    background-size: cover;
+    background-position:  center;
+    background-attachment: fixed;
+    margin-top: -300px;
+    margin-bottom: 100px;
+}

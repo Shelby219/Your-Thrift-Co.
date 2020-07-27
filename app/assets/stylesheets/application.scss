@@ -18,6 +18,8 @@
  @import "variables"; 
  @import "nav"; 
  @import "user_log_sign"; 
+ @import "footer"; 
+ 
  * {
 
    font-family: 'Nunito Sans', sans-serif;
@@ -34,7 +36,7 @@
 body {
    margin: 0px;
    padding: 0px;
-   min-height: 100vh;
+   min-height: 125vh;
    display: grid;
    grid-template-columns: auto;
    grid-template-rows: 0.1fr auto 0.1fr;

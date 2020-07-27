@@ -1,6 +1,7 @@
-
-<%= render 'shared/nav'%> 
-
+<header>
+<%= render 'shared/nav'%>  
+</header> 
+<body>
 <% @users.each do |user| %>
     <%= link_to user.username, user %>
     <%= user.email %>
@@ -8,5 +9,7 @@
 
 
 <%= link_to "All users", users_path %>
+
+</body>
 
 <%= render 'shared/footer'%> 

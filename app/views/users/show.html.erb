@@ -1,5 +1,7 @@
-<%= render 'shared/nav'%> 
-
+<header>
+<%= render 'shared/nav'%>  
+</header> 
+<body>
 <%= link_to "All users", users_path %>
 <main class = "main-container" >
         <% if @user.avatar.attached? %>
@@ -48,5 +50,6 @@
             
 </section>
 
+</body>
 
 <%= render 'shared/footer'%> 
