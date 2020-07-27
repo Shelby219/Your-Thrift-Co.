@@ -8,22 +8,26 @@
           <div class="column"> 
             <div class="row">
                   <% @items.each do |item| %>
-                    <div class="column ">
-                    <div class = "image-wrapper">
-                    <%= link_to item do %>
-                      <%= image_tag item.images[0], :class => "img-size" %> <br>
-          
-                      <%= item.title %><br>
-                        <%= item.price %>
-                      <% end %>
-
-                      <% if(current_user && current_user.id && (current_user.id == item.user_id)) %>
-                      <%= link_to 'Edit', edit_item_path(item) %> 
-                      <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %> 
-                      <% end %>
-                      
-                 <% end %>
-                    </div>
+                    <div class="column index-item-wrapper">
+                      <%= link_to item do %>
+                        <div class = "image-wrapper">
+                        <div class="column">
+                            <%= image_tag item.images[0], :class => "img-size" %> <br>
+                            <div class="item-title-price">
+                            <%= item.title %><br>
+                            <span>$<%= item.price %></span>
+                            </div>  
+                           <% end %>
+                        </div>  
+                        <div class="column edit-delete-index">
+                            <% if(current_user && current_user.id && (current_user.id == item.user_id)) %>
+                            <%= link_to 'Edit', edit_item_path(item) %> 
+                            <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %> 
+                            <% end %>
+                        </div>
+                        </div>
+                      <%end%>
+                    
                    </div>
                   </div>
                 </div>

@@ -5,23 +5,49 @@
 <div class="row">
   <div class="col-md-8">
         <div class="row">
-        <% @item.images.each do |image|%>
-              <div class="col-md-6" >
-                <%= image_tag image, class: "d-block w-100" %>
+        <<div class="container col-md-6">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner ">
+            <div class="carousel-item active">
+            <%= image_tag @item.images[0], class: "d-block w-100" %>
+            </div>
+            <% @item.images.each do |image|%>
+              <% if image != @item.images[0] %>
+              <div class="carousel-item">
+                <%= image_tag image , class: "d-block w-100 show-image" %> 
               </div>
+              <% end %>
         <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        </div>
         </div>
   </div>
 
 
   <div class="col-md-4">
+
+  <%= @item.id %>
 <p>
   <strong>Title:</strong>
   <%= @item.title %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Price: $</strong>
   <%= @item.price %>
 </p>
 
@@ -51,7 +77,7 @@
 </p>
 
 <p>
-  <strong>Shipping:</strong>
+  <strong>Shipping: $</strong>
   <%= @item.shipping%>
 </p>
 
@@ -62,3 +88,7 @@
     <%= link_to 'Edit', edit_item_path(@item) %> 
 <% end %>
 <%= link_to 'Back', items_path %>
+
+
+
+<%= render 'shared/footer'%> 

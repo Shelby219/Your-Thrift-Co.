@@ -2,14 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.index-item-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.index-item-wrapper:hover a {
+  background-color: transparent !important;
+}
+
 .img-size {
-    width: 30%;
+    width: 200px;
+    justify-content: center;
     height: auto;
-    padding: 5px;
+    padding: 20px;
     margin-right: 10px;
     margin-left: 10px;
   }
 .image-wrapper {
   border: 1px solid #000; 
+  margin: 20px;
 }
 
+.item-title-price {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.edit-delete-index {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+ /****Show page Formatting******/
+
+ .show-image {
+   width: 50%;
+ }

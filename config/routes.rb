@@ -2,8 +2,17 @@ Rails.application.routes.draw do
 
 
   devise_for :users
+
+  #additional routes 
+  devise_scope :user do
+    get 'sign_in', to: 'devise/sessions#new'
+    get 'users', to: 'devise/sessions#new'
+  end
+
+
+
   resources :items
- # Root page
+ # Root page   
   root 'pages#home'  
  
   # Pages just for Viewing 
@@ -13,7 +22,7 @@ Rails.application.routes.draw do
   get '/support', to: 'pages#support'
   get '/privacy', to: 'pages#privacy'
 
-    # .....
+  # .....
   
 
 

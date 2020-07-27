@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_07_22_064228) do
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.decimal "price"
-    t.text "description"
+    t.text "description"    
     t.string "size"
     t.string "colour"
     t.string "material"
