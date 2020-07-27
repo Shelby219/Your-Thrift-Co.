@@ -38,15 +38,16 @@
 
  /****Show page Formatting******/
 
- .show-image {
+ .show-image {   
    width: 50%;
  }
  .carousel-control-prev:hover, .carousel-control-next:hover {
   background-color: transparent !important;
  } 
-
  .main-show-text {
      padding: 20px;
-  
+ }
 
+ .main-show-page{
+  z-index: -1;
  }
