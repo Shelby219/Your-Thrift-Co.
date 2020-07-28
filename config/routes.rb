@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :shopping_bags
   devise_for :users
   get 'users/:id', to: 'users#show'
   resources :users
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
     get 'sign_in', to: 'devise/sessions#new'
     #get 'users', to: 'devise/sessions#new'
   end
-
+  
 
   resources :items
   #get 'sign_in', to: 'items/user'
