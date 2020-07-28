@@ -5,7 +5,6 @@
    
 
 @import "variables"; 
-
 /*****CONTACT MAIN CONTENT******/
 
 #name, #_replyto, #message {
@@ -75,17 +74,71 @@ and (-webkit-min-device-pixel-ratio: 1) {
 /* Desktop Styles */ /* CONTACT CONTENT */
 @media only screen and (min-width: 996px) {
    
-
 }
 /*****HOME MAIN CONTENT******/
+    
+.home-page-images {
+margin-top: 90px;
+}
 
-.home-page-slide {
+.home-background {
+  background-image: url('https://images.unsplash.com/photo-1545335779-4209a3efe3a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
+}
+.index-home {
   z-index: -1;
 }
-.home-page-slide-show {
-    background-size: cover;
-    background-position:  center;
-    background-attachment: fixed;
-    margin-top: -300px;
-    margin-bottom: 100px;
+.home-main {
+  margin-top: 50px;
 }
+.card {
+  width: 18rem !important;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+

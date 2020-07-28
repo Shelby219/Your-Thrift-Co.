@@ -34,7 +34,7 @@
               <%= link_to 'Sell My Clothes', new_item_path, class: "user-buttons-do" %>
             </li>
             <% if user_signed_in? %>
-              <li class = "user-buttons">
+              <li class = "user-buttons">   
                 <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "user-buttons-do"%>
               </li>
               <li class = "user-buttons">
@@ -46,10 +46,10 @@
              
             <% else %>
               <li class = "user-buttons">
-                <%= link_to "Log In", new_user_session_path(user_type: "returning_user"), class: "user-buttons-do"%>
+                <%= link_to "Log In", new_user_session_path, class: "user-buttons-do"%>
               </li>
               <li class = "user-buttons">
-                <%= link_to 'Sign Up', new_user_registration_path(user_type: "buyer"), class: "user-buttons-do"%>
+                <%= link_to 'Sign Up', new_user_registration_path, class: "user-buttons-do"%>
               </li>
           <% end %>
         </ul>
