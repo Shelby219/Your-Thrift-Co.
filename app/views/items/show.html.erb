@@ -1,99 +1,70 @@
 <header>
 <%= render 'shared/nav'%>  
 </header> 
+<body>
+    <div class="show-container">
+          
+            
+                <% @item.images.each do |image|%>
+                    <%= image_tag image, class: "show-image" %> 
+                  <% end %>
+        
+          <div class=" main-show-text">
 
-<div class="row main-show-page">  
-  <div class="col-md-8">
-      <div class="row">
-        <div class="container col-md-6">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner ">
-            <div class="carousel-item active">
-            <%= image_tag @item.images[0], class: "d-block w-100" %>
-            </div>
-            <% @item.images.each do |image|%>
-              <% if image != @item.images[0] %>
-              <div class="carousel-item">
-                <%= image_tag image , class: "d-block w-100 show-image" %> 
-              </div>
+                <%= @item.id %>
+              <p>
+                <strong>Title:</strong>
+                <%= @item.title %>
+              </p>
+
+              <p>
+                <strong>Price: $</strong>
+                <%= @item.price %>
+              </p>
+
+              <p>
+                <strong>Description:</strong>
+                <%= @item.description %>
+              </p>
+
+              <p>
+                <strong>Size:</strong>
+                <%= @item.size %>
+              </p>
+
+              <p>
+                <strong>Colour:</strong>
+                <%= @item.colour %>
+              </p>
+
+              <p>
+                <strong>Material:</strong>
+                <%= @item.material %>
+              </p>
+
+              <p>
+                <strong>Location:</strong>
+                <%= @item.location %>
+              </p>
+
+              <p>
+                <strong>Shipping: $</strong>    
+                <%= @item.shipping%>
+              </p>
+              <p>
+                <strong>Seller:</strong>
+                <%= link_to @item.user.username, @item.user %>
+              </p>
+              <p>
+              <% if(current_user && current_user.id && (current_user.id == @item.user_id)) %>
+              <%= link_to 'Edit', edit_item_path(@item) %> 
               <% end %>
-        <% end %>
+              </p>
+              <p>
+              <%= link_to 'Back', items_path %>
+              </p>
           </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-        </div>
-        </div>
-        </div>
-  </div>
-
-
-  <div class="col-md-4 main-show-text">
-
-        <%= @item.id %>
-      <p>
-        <strong>Title:</strong>
-        <%= @item.title %>
-      </p>
-
-      <p>
-        <strong>Price: $</strong>
-        <%= @item.price %>
-      </p>
-
-      <p>
-        <strong>Description:</strong>
-        <%= @item.description %>
-      </p>
-
-      <p>
-        <strong>Size:</strong>
-        <%= @item.size %>
-      </p>
-
-      <p>
-        <strong>Colour:</strong>
-        <%= @item.colour %>
-      </p>
-
-      <p>
-        <strong>Material:</strong>
-        <%= @item.material %>
-      </p>
-
-      <p>
-        <strong>Location:</strong>
-        <%= @item.location %>
-      </p>
-
-      <p>
-        <strong>Shipping: $</strong>    
-        <%= @item.shipping%>
-      </p>
-      <p>
-        <strong>Seller:</strong>
-        <%= link_to @item.user.username, @item.user %>
-      </p>
-      <p>
-      <% if(current_user && current_user.id && (current_user.id == @item.user_id)) %>
-      <%= link_to 'Edit', edit_item_path(@item) %> 
-   <% end %>
-  </p>
-  <p>
-  <%= link_to 'Back', items_path %>
-  </p>
-   </div>
-</div>
-
+    </div>
+</body>
 
 <%= render 'shared/footer'%> 

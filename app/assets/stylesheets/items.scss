@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .index-item-wrapper {
-  display: flex;
+  display: flex;    
   flex-wrap: wrap;
   flex-direction: row;
 }
@@ -34,12 +34,12 @@
 .edit-delete-index {
   display: flex;
   justify-content: space-evenly;
-}
+}    
 
  /****Show page Formatting******/
 
  .show-image {   
-   width: 50%;
+   width: 200px;
  }
  .carousel-control-prev:hover, .carousel-control-next:hover {
   background-color: transparent !important;
@@ -47,7 +47,9 @@
  .main-show-text {
      padding: 20px;
  }
+  .show-container {
+    display: flex;
+    flex-flow: row wrap;
 
- .main-show-page{
-  z-index: -1;
- }
+  }
+ 

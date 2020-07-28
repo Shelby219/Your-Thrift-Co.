@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-.main-container {
+/*****PROFILE MAIN CONTENT******/
+.main-container { 
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -18,5 +18,9 @@
 
 .avatar-img {
     width: 200px;
-    height: auto;
+    height: 200px;
+    clip-path: circle(50% at 50% 50%);
 }
+
+
+/*****PROFILE MAIN CONTENT******/

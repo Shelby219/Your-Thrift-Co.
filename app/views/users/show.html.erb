@@ -9,7 +9,7 @@
         <% end %>
        
 <div class = "main-inner-text" >
-            <%= @user.username %><br>
+            <h2><%= @user.username %></h2><br>
             <% if(current_user && current_user.id && (current_user.id == @user.id)) %>
              <%= @user.email %>
             <% end %>
@@ -19,7 +19,7 @@
     </div>
   
 </main>
-
+<hr class="featurette-divider">
 <section class="container ">
           <div class="column"> 
             <div class="row">   
