@@ -2,14 +2,14 @@ class CartItemsController < ApplicationController
     include CurrentCart
     before_action :set_cart, only: [:create] #before create, execute :set_cart, find(or create) cart
     before_action :set_cart_item, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!
+    #before_action :authenticate_user!
 
   def index
     @cart_items = CartItem.all
   end
 
   def show
-  end
+  end  
   
   def new
     @cart_item = CartItem.new
@@ -23,7 +23,7 @@ class CartItemsController < ApplicationController
   item = Item.find(params[:item_id])
   @cart_item = @cart.add_item(item.id)
     if @cart_item.save
-      redirect_to current_user.cart 
+      redirect_to root_path
     else
       render :new 
     end

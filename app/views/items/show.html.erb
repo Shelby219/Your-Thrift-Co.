@@ -63,6 +63,7 @@
               <p>
               <%= link_to 'Back', items_path %>
               </p>
+              <%= button_to 'Add to cart', cart_items_path(item_id: @item), remote: true %>
           </div>
     </div>
 </body>
