@@ -20,7 +20,31 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-   
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      customer_email: current_user.email,
+      billing_address_collection: 'required',
+      shipping_address_collection: {
+      allowed_countries: ['AU'],
+  },
+      line_items: [{
+          name: @item.title,
+          description: @item.description,
+          amount: ((@item.price + @item.shipping) * 100).to_i,
+          currency: 'aud',
+          quantity: 1,
+      }],   
+      payment_intent_data: {
+          metadata: {
+              user_id: current_user.id,
+              item_id: @item.id
+          }
+      },
+      success_url: "#{root_url}payments/success?userId=#{current_user.id}&itemId=#{@item.id}",
+      cancel_url: "#{root_url}items"
+  )
+  #Session ID for stripe
+  @session_id = session.id
   end
 
   # GET /items/new

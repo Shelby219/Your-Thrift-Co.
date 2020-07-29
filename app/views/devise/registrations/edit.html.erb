@@ -14,7 +14,7 @@
                   autofocus: true,
                   input_html: { autocomplete: "username" }, placeholder: 'username' %>
     <%= f.input :name,
-                  required: true,
+                  required: false, 
                   autofocus: true,
                   input_html: { autocomplete: "name" }, placeholder: 'name' %>
     <%= f.input :email, required: true, autofocus: true %>
@@ -34,9 +34,25 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-  <div class=”field”> (Upload your new profile picture below!)
+  <div class=”field”> Profile Picture
   <%= f.file_field :avatar %> </div>
-  </div>
+  <%= f.input :address,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "address" } %>
+  <%= f.input :city,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "city" } %> 
+  <%= f.input :state,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "state" } %> 
+  <%= f.input :post_code,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "post_code" }, placeholder: '0000' %>                   
+     </div>
   </div>
 
   <div class="form-actions">

@@ -63,8 +63,31 @@
               <p>
               <%= link_to 'Back', items_path %>
               </p>
+              <% unless(current_user && current_user.id && (current_user.id == @item.user_id)) %>
+              <p>
+              <button data-stripe="payment">
+              Buy this Item
+              </button>
+              </P>
+              <% end %>
           </div>
-    </div>
+    </div>  
 </body>
-
+ 
 <%= render 'shared/footer'%> 
+
+
+
+<script>
+document
+  .querySelector("[data-stripe='payment']")
+  .addEventListener("click", () => {
+    const stripe = Stripe(
+      "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+    );
+
+    stripe.redirectToCheckout({
+      sessionId: "<%= @session_id %>"
+    });
+  });
+</script>
