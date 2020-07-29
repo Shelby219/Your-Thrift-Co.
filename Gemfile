@@ -66,3 +66,4 @@ gem 'simple_form'
 gem "aws-sdk-s3", require: false
 
 
+gem 'acts_as_shopping_cart'
