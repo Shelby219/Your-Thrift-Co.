@@ -55,8 +55,6 @@ Another notable purpose of the application is the ability for users to, in a sen
 
 - Search Function- 
 
-
-
 ### Sitemap
 
 ![Site Map](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/SiteMap.png)
@@ -94,9 +92,31 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 -----
 ## User stories for your app
 
+MVP Features
 
+- As a User I should be able to sign up
+- As a User I should be able to log in
+- As a User I should be able to edit my profile details
+- As a User I should have a profile dashboard that shows my details and my own items listed
+- As a User to sell I should be able to list my items for sale on the marketplace
+- As a User I was to browse listings via navigation bar via category
+- As a User buying I should be able to add items to my bag, edit bag and remove items
+- As a User viewing my bag, items are group by the seller. With purchase buttons under each item.
+- As a User I should be able to make a purchase of an item either via the item show page, or a button via the shopping bag
+- As a User I should be able to see my items (receipts) Sold and my items purchases as separate lists
+- As a User I should be able to see the above with the which status pending
 
+Nice to Have Features
 
+- As a User I want to leave comments on items
+- As a User I want to like other user's items 
+- As a User I want to follow other users and have them follow me
+- As a User I want to leave reviews on a user when I make a purchase
+- As a User I want to leave a review on a user that has bought an item from me
+- As a User Selling I want to receive a email when I have sold an item
+- As a User Buyer I want to received order confirmation and shipping confirmation
+- As a User viewing my bag, items are grouped via seller, with the ability to bulk purchase from a user selling.
+- As a User I want to filter through item listings. 
 
 -----
 ## Wireframes for your app
