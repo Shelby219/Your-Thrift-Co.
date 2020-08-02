@@ -9,10 +9,10 @@ class PaymentsController < ApplicationController
          item_id = payment.metadata.item_id
          user_id = payment.metadata.user_id
     
-         p "listing id " + item_id
+         p "item id " + item_id
          p "user id " + user_id
     
          status 200
      end
   
-end
+end  

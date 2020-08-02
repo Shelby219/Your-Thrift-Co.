@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
           amount: ((@item.price + @item.shipping) * 100).to_i,
           currency: 'aud',
           quantity: 1,
-      }],   
+      }],      
       payment_intent_data: {
           metadata: {
               user_id: current_user.id,
@@ -105,7 +105,8 @@ class ItemsController < ApplicationController
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+  end   
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
