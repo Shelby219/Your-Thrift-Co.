@@ -22,11 +22,11 @@ Rails.application.routes.draw do
   get '/contact', to: 'pages#contact'
   get '/about', to: 'pages#about' 
   get '/terms', to: 'pages#terms'
-  get '/support', to: 'pages#support'
+  get '/support', to: 'pages#support'   
   get '/privacy', to: 'pages#privacy'
 
   # .....
-  
+  resources :charges
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"
   
@@ -34,4 +34,4 @@ Rails.application.routes.draw do
 end
     
 
-
+   

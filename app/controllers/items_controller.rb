@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
       #@categories = Category.all
   end
 
-  # GET /items/1
+  # GET /items/1   
   # GET /items/1.json
   def show
     session = Stripe::Checkout::Session.create(
@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
       allowed_countries: ['AU'],
   },
       line_items: [{
-          name: @item.title,
+          name: @item.title, 
           description: @item.description,
           amount: ((@item.price + @item.shipping) * 100).to_i,
           currency: 'aud',
