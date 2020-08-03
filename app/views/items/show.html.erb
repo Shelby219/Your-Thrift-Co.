@@ -18,8 +18,8 @@
               </p>
 
               <p>
-                <strong>Price: $</strong>
-                <%= @item.price %>
+                <strong>Price:</strong>
+                <%= number_to_currency(@item.price) %>
               </p>
 
               <p>
@@ -48,8 +48,8 @@
               </p>
 
               <p>
-                <strong>Shipping: $</strong>    
-                <%= @item.shipping%>
+                <strong>Shipping:</strong>    
+                <%= number_to_currency(@item.shipping) %>
               </p>
               <p>
                 <strong>Seller:</strong>
@@ -63,7 +63,7 @@
               <p>
               <%= link_to 'Back', items_path %>
               </p>
-              <%= button_to 'Add to cart', cart_items_path(item_id: @item), remote: true %>
+              <%= button_to 'Add to cart', cart_path(item_id: @item.id) %>
           </div>
     </div>
 </body>

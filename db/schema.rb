@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_025323) do
+ActiveRecord::Schema.define(version: 2020_08_03_011706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,20 +36,18 @@ ActiveRecord::Schema.define(version: 2020_07_29_025323) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "cart_items", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "item_id"
-    t.bigint "cart_id"
-    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
-    t.index ["item_id"], name: "index_cart_items_on_item_id"
-  end
-
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "carts_items", id: false, force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.bigint "item_id", null: false
+    t.index ["cart_id", "item_id"], name: "index_carts_items_on_cart_id_and_item_id"
+    t.index ["item_id", "cart_id"], name: "index_carts_items_on_item_id_and_cart_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -71,6 +69,8 @@ ActiveRecord::Schema.define(version: 2020_07_29_025323) do
     t.bigint "user_id", null: false
     t.decimal "shipping", precision: 10, scale: 2, default: "0.0"
     t.integer "category_id"
+    t.integer "buyer_id"
+    t.integer "seller_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -84,14 +84,16 @@ ActiveRecord::Schema.define(version: 2020_07_29_025323) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "username"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.integer "post_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "cart_items", "carts"
-  add_foreign_key "cart_items", "items"
   add_foreign_key "carts", "users"
   add_foreign_key "items", "users"
 end

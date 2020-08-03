@@ -17,7 +17,7 @@ Rails.application.routes.draw do
  # Root page   
   root 'pages#home'  
  
-  # Pages just for Viewing 
+  # Pages just for Viewing  
   get '/contact', to: 'pages#contact'
   get '/about', to: 'pages#about'
   get '/terms', to: 'pages#terms'
@@ -25,8 +25,10 @@ Rails.application.routes.draw do
   get '/privacy', to: 'pages#privacy'
 
   # .....  
-  resource :carts
-  resources :cart_items
+  get '/cart', to: 'carts#show'
+  post '/cart', to: 'carts#new'
+  delete '/cart', to: 'carts#destroy'
+  put '/cart', to: 'carts#update'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
     

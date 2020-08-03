@@ -15,11 +15,12 @@ class ItemsController < ApplicationController
       @items = Item.where(category_id: @category_id).order('created_at DESC')
       end
       #@categories = Category.all
-  end
+  end    
 
   # GET /items/1
   # GET /items/1.json
-  def show
+  def show 
+    #@item = Item.find(params[:id])
    
   end
 

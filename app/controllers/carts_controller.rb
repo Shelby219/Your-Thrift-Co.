@@ -1,41 +1,47 @@
 class CartsController < ApplicationController
-  before_action :authenticate_user!
-
-   before_action :set_cart, only: [:show, :edit, :update, :destroy]
-   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
-
+  include ActionView::Helpers::TextHelper
+    rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
+    before_action :authenticate_user!
 
 def show
-  @cart = current_user.cart
+  @items = @cart.contained_items
 end
 
-def edit
+def edit 
+  
+  
 end
 
+def new
+  item = Item.find(params[:item_id])
+    @cart.add_item(item.id)
+    refresh_cart
+    redirect_to cart_path
+end
 
 def update
-  if @cart.update(cart_params)
-    redirect_to @cart, notice: 'Cart was successfully updated.' 
-  else
-    render :edit 
-  end
+  @cart.change_quantity(params[:item_id], params[:quantity_change])
+  refresh_cart
+  redirect_to cart_path
 end
 
 def destroy
-  @cart.destroy if @cart.id == session[:cart_id]
-  session[:cart_id] = nil
-  redirect_to root_path
+  item = Item.find(params[:item_id])
+  @cart.remove_item(item.id)
+  refresh_cart
+  flash[:notice] = 'Successfully removed ' \
+                   "#{view_context.link_to item.title, item_path(item)} " \
+                   'from your cart.'
+  redirect_to cart_path
 end
 
 private
-        def set_cart
-            @cart = Cart.find(params[:id])
+
+        def refresh_cart
+          session[:cart] = @cart.contents
         end
       
-        def cart_params
-            params[:cart]
-        end
-
+    
         def invalid_cart
         logger.error "Attempt to access invalid cart #{params[:id]}"
         redirect_to root_path, notice: 'Invalid cart'
