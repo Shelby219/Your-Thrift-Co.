@@ -9,35 +9,25 @@
   <h1>Your Cart</h1>
 </div>    
    
-<div class="well powerpuffgirl">
-  <table class="table table-striped" id="cart-contents">
-    <% @items.each do |item| %>
-    <tr>    
-      <td><%= link_to (image_tag item.images[0], width: 100), item_path(item) %></td>
-      <td><%= link_to (item.title), item_path(item) %></td>
-      <td><%= number_to_currency(item.price) %></td>
-      <td><%= item.description.truncate_words(10) %></td>
-      <td>
-        <div class="btn-group">
-          <%= button_to "+", cart_path(item_id: item.id, quantity_change: 1), method: "put" %>
-          <%= button_to "-", cart_path(item_id: item.id, quantity_change: -1), method: "put" %>
-        </div>  
-      </td>
-      <td>Quantity: <%= quantity %></td>
-    </tr>
-    <tr> 
-      <td></td><td></td><td></td><td></td>
+
       <td><%= button_to "Remove", cart_path(item_id: item.id), method: 'delete' %></td>
-      <td>Subtotal: <%= number_to_currency(item.price * quantity) %></td>
-    </tr>
-    <% end %>
-  </table>
+      
   
 </div>
 </main>
-
-
 </body>
 
 <%= render 'shared/footer'%> 
-  
+
+
+
+<h1> Cart </h1>
+<% @items.each do |item| %>
+  <p>
+    <%= item.title %>
+    <%= link_to (image_tag item.images[0], width: 100), item_path(item) %>
+    <%= number_to_currency(item.price) %>
+    <%= item.description.truncate_words(10) %>
+    <%= link_to "Remove", remove_path(item) %>
+  </p>
+<% end %>

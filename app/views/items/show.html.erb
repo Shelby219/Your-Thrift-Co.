@@ -63,11 +63,11 @@
               <p>
               <%= link_to 'Back', items_path %>
               </p>
-              <% if user_signed_in? %>
+           
               <%= button_to 'Add to Bag', cart_path(item_id: @item.id) %>
-              <% else %>
+          
               <%= button_to 'Sign In to Purchase', new_user_session_path %>
-              <% end %>
+     
           </div>    
     </div>
 </body>
