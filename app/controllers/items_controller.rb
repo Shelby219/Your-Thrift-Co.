@@ -2,8 +2,11 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
   before_action :set_user_item, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
+  
+  belongs_to :buyer, class_name: "User", optional: true
+  belongs_to :seller, class_name: "User"
     
-  # GET /items  
+  # GET /items       
   # GET /items.json
   def index
     @items = Item.all
