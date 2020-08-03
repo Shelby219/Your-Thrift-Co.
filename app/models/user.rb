@@ -5,9 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  #devise :database_authenticatable, :authentication_keys => [:username]
-  #validates :email, uniqueness: true
-  #validates :username, uniqueness: true
   has_one_attached :avatar
   has_one :cart
 end
+          
