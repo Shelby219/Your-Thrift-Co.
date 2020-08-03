@@ -25,8 +25,13 @@ Rails.application.routes.draw do
   get '/privacy', to: 'pages#privacy'
 
   # .....  
-  resource :carts
-  resources :cart_items
+
+   # Shopping Cart
+  resources :cart_items, only: [:create, :update, :destroy]
+  get    'cart',     to: 'carts#index'
+  #resources :carts, only: %i[index create destroy]
+  #resource :carts
+  #resources :cart_items
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
     

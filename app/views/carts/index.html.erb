@@ -1,0 +1,37 @@
+<header>
+<%= render 'shared/nav'%>  
+</header> 
+<body>
+
+<h2>Your Cart</h2>
+
+
+<table class="row">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Product</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+
+<tbody>
+<% current_cart.cart_items.each do |cartitem| %>
+    <tr class="col-md-16">
+      <td><%= link_to image_tag(cartitem.item.images[0]), item_path(cartitem.item.id)  %></td>
+      <td><%= link_to cartitem.item.title, item_path(cartitem.item.id)   %></td>
+      <td><%= cartitem.item.description %></td>
+      <td><%= number_to_currency cartitem.item.price, unit: 'PLN', format: '%n %u' %></td>
+      <td><%= number_to_currency cartitem.item.shipping, unit: 'PLN', format: '%n %u' %></td>
+     
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</body>
+
+<%= render 'shared/footer'%> 
+  
