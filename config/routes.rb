@@ -25,10 +25,12 @@ Rails.application.routes.draw do
   get '/privacy', to: 'pages#privacy'
 
   # .....  
-  get '/cart', to: 'carts#show'
-  post '/cart', to: 'carts#new'
-  delete '/cart', to: 'carts#destroy'
-  put '/cart', to: 'carts#update'
+  # Shopping Cart
+  #resources :carts, only: %i[index create destroy]
+  get '/carts', to: 'carts#show'
+  post '/carts', to: 'carts#create'
+  delete '/carts', to: 'carts#destroy'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
     

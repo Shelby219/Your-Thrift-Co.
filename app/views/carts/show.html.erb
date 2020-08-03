@@ -5,34 +5,27 @@
 <body>
 
 <main>
-<div >
+<div>
   <h1>Your Cart</h1>
 </div>    
-   
-<div class="well powerpuffgirl">
-  <table class="table table-striped" id="cart-contents">
-    <% @items.each do |item| %>
-    <tr>    
-      <td><%= link_to (image_tag item.images[0], width: 100), item_path(item) %></td>
-      <td><%= link_to (item.title), item_path(item) %></td>
-      <td><%= number_to_currency(item.price) %></td>
-      <td><%= item.description.truncate_words(10) %></td>
-      <td>
-        <div class="btn-group">
-          <%= button_to "+", cart_path(item_id: item.id, quantity_change: 1), method: "put" %>
-          <%= button_to "-", cart_path(item_id: item.id, quantity_change: -1), method: "put" %>
-        </div>  
-      </td>
-      <td>Quantity: <%= quantity %></td>
-    </tr>
-    <tr> 
-      <td></td><td></td><td></td><td></td>
-      <td><%= button_to "Remove", cart_path(item_id: item.id), method: 'delete' %></td>
-      <td>Subtotal: <%= number_to_currency(item.price * quantity) %></td>
-    </tr>
-    <% end %>
-  </table>
-  
+<div>
+    <% unless @cart.blank? %>
+    <% @cart.items.each do |cart_item| %>
+       
+     
+                <p>
+                  <span ><%= link_to cart_item.title, item_path(cart_item) %></span><br>
+                  <span ><%= cart_item.description %></span><br>
+                  <span ><%= pluralize format_grams_to_kg(shopping_cart_item.weight), 'kg' %></span><br>
+                  <span ><%= number_to_currency  shopping_cart_item.price %></span>
+                  <span ><%= number_to_currency  shopping_cart_item.shipping %></span>
+                </p>
+      </div>
+  <div>
+          <%= link_to 'Remove from Cart', cart_path(cart_item), method: :delete %>
+  </div>
+      <% end %>
+      <% end %>
 </div>
 </main>
 
@@ -40,4 +33,3 @@
 </body>
 
 <%= render 'shared/footer'%> 
-  

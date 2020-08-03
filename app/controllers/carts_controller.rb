@@ -1,60 +1,60 @@
 class CartsController < ApplicationController
-    rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
-    helper_method :current_user
-    before_action :set_cart
+    #rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
+
+    #helper_method :current_user
+   
     before_action :authenticate_user!
+    before_action :set_cart
 
-    
-def show   
-  #@items = @cart.contained_items
-  @items = @cart.list_all_cart
-  
-end
+    def show
+      # Get shopping cart items
+      @cart = current_user.cart if !current_user.cart.blank?
+    end
 
-def edit    
-  
-  
-end
 
-def new
-  item = Item.find(params[:item_id])
-    @cart.add_item(item.id)
-    refresh_cart
-    redirect_to cart_path
-end
+  def create
+    # Get the product id
+    @cart = current_user.cart.create(params)
+    cart_item = params.require(:cart)[:item_id]
+    # Find the product id
+    item = Item.find(cart_item)
 
-def update
-  # @cart.change_quantity(params[:item_id], params[:quantity_change])
-  # refresh_cart
-  # redirect_to cart_path
-end
+    # Find the shopping cart
+    @cart = current_user.cart unless current_user.cart.blank?
+    if current_user.cart.blank?
+      @cart = Cart.new(current_user)
+    end
+    # Add product to shopping cart
+    @cart.add_item(item)
+    # Change product status to Reserved
+    item.change_status_to('Reserved')
+    redirect_to carts_url
+  end
 
-def destroy
-  item = Item.find(params[:item_id])
-  @cart.remove_item(item.id)
-  refresh_cart
-  flash[:notice] = 'Successfully removed ' \
-                   "#{view_context.link_to item.title, item_path(item)} " \
-                   'from your cart.'
-  redirect_to cart_path
-end
+ 
+  def destroy
+    # Get the product id
+    cart_item = params.permit(:id)[:id]
+    # Find the product id
+    item = Item.find(cart_item)
+    # Delete product id from shopping_cart
+    current_user.cart.remove_item(item)
+    # Set product status to Available
+    item.change_status_to('Available')
 
-private
-        def current_user
-          @current_user ||= User.find(session[:user_id]) if session[:user_id]
-        end
+    redirect_to carts_url
+  end
 
+
+ 
+    private
+        # Use callbacks to share common setup or constraints between actions.
         def set_cart
-          @cart = Cart.new(session[:cart])
+          #@cart = Cart.find(params[:id])
+          @cart = Cart.find_by_id(params[:id]) || @cart = Cart.create(params[:id])
         end
-
-
-        def refresh_cart
-          session[:cart] = @cart.contents
-        end
-        
-        def invalid_cart
-        logger.error "Attempt to access invalid cart #{params[:id]}"
-        redirect_to root_path, notice: 'Invalid cart'
-        end
+         def set_cart
+           @cart = Cart.new(session[:cart])
+         end
+  
 end
