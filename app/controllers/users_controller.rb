@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     def set_user_item
       id = params[:id]
       @item = current_user.items.find_by_id(id)
-  
+    
       if @item == nil
           redirect_to item_path
       end

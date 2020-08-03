@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_user_item, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
     
-  # GET /items  
+  # GET /items      
   # GET /items.json
   def index
     @items = Item.all
@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   def new
     # If the user is logged in it will redirect to a new listing form, else it will redirect to sign up
     if user_signed_in?
-      if current_user.id
+      if current_user.id   
         @item = Item.new
       else
           redirect_to new_user_path
