@@ -3,8 +3,7 @@ class UsersController < ApplicationController
     before_action :set_user_item, only: [:edit, :update, :destroy]
     before_action :authenticate_user!
 
-    has_many :items_to_buy, class_name: "Item", foreign_key: "buyer_id"
-    has_many :items_to_sell, class_name: "Item", foreign_key: "seller_id"
+    
 
     def index 
     @users = User.all 

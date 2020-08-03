@@ -3,8 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_user_item, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
   
-  belongs_to :buyer, class_name: "User", optional: true
-  belongs_to :seller, class_name: "User"
+ 
     
   # GET /items       
   # GET /items.json
@@ -46,7 +45,7 @@ class ItemsController < ApplicationController
       success_url: "#{root_url}payments/success?userId=#{current_user.id}&itemId=#{@item.id}",
       cancel_url: "#{root_url}items"
   )
-  #Session ID for stripe
+  #Session ID for stripe 
   @session_id = session.id
   end
 
