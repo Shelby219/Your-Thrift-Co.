@@ -18,8 +18,8 @@
               </p>
 
               <p>
-                <strong>Price: $</strong>
-                <%= @item.price %>
+                <strong>Price: </strong>
+                <%= number_to_currency(@item.price) %>
               </p>
 
               <p>
@@ -48,22 +48,29 @@
               </p>
 
               <p>
-                <strong>Shipping: $</strong>    
-                <%= @item.shipping%>
+                <strong>Shipping: </strong>    
+                <%= number_to_currency(@item.shipping)%>
               </p>
               <p>
                 <strong>Seller:</strong>
                 <%= link_to @item.user.username, @item.user %>
               </p>
-              <p>
+              <p>  
               <% if(current_user && current_user.id && (current_user.id == @item.user_id)) %>
               <%= link_to 'Edit', edit_item_path(@item) %> 
               <% end %>
-              </p>
+              </p>  
+              <p>
+              <% unless(current_user && current_user.id && (current_user.id == @item.user_id)) %>
+                    <%= form_for @item, :url => cart_items_path, :html => { :method => :post } do |f|%>
+                    <%= f.hidden_field :item_id, value: @item.id %>
+                    <%= f.submit 'Add to Cart', class: "btn btn-success" %>
+                    <% end %>
+              <% end %>  
+              </p> 
               <p>
               <%= link_to 'Back', items_path %>
               </p>
-              <%= button_to 'Add to cart', cart_items_path(item_id: @item), remote: true %>
           </div>
     </div>
 </body>

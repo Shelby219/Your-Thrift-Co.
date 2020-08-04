@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :items
   #get 'sign_in', to: 'items/user'
 
-
  # Root page   
   root 'pages#home'  
  
@@ -24,15 +23,13 @@ Rails.application.routes.draw do
   get '/support', to: 'pages#support'
   get '/privacy', to: 'pages#privacy'
 
-  # .....  
 
-   # Shopping Cart
-  resources :cart_items, only: [:create, :update, :destroy]
+  # Shopping Cart
+  resources :cart_items, only: [:create, :destroy]
   get    'cart',     to: 'carts#index'
-  #resources :carts, only: %i[index create destroy]
-  #resource :carts
-  #resources :cart_items
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  #delete "/cart/:cart_id/destroy/:item_id", to: "cart_items#destroy"
+  #post 'line_items' => "line_items#create"
+  #delete 'cart_items/:id' => "cart_items#destroy"
 end
     
 

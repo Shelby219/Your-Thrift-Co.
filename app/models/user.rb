@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_many :items
   has_one_attached :avatar
-  has_one :cart
+  #has_one :cart
 end
           

@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_07_29_025323) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-
+     
   create_table "cart_items", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

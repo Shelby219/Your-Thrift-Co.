@@ -21,10 +21,10 @@
                             <%= image_tag item.images[0], :class => "img-size" %> <br>
                             <div class="item-title-price">
                             <%= item.title %><br>
-                            <span>$<%= item.price %></span>
+                            <span><%= number_to_currency(item.price) %></span>
                             </div>  
                            <% end %>
-                        </div>  
+                        </div>       
                         <div class="column edit-delete-index">
                             <% if(current_user && current_user.id && (current_user.id == item.user_id)) %>
                             <%= link_to 'Edit', edit_item_path(item) %> 
@@ -33,7 +33,6 @@
                         </div>
                         </div>
                       <%end%>
-                    
                    </div>
                   </div>
                 </div>
