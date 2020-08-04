@@ -3,19 +3,20 @@ class Item < ApplicationRecord
     has_many_attached :images
     belongs_to :category
     has_many :cart_items, dependent: :destroy 
-    before_destroy :ensure_not_referenced_by_any_cart_item
+    has_many :carts, through: :cart_listings
+    # before_destroy :ensure_not_referenced_by_any_cart_item
 
-    private
-    # ensure that there are no line items referencing this product
-    def ensure_not_referenced_by_any_cart_item
-    	if cart_items.empty?
-    		return true
-    	else
-    		errors.add(:base, 'Cart Items present')
-    		return false
+    # private
+    # # ensure that there are no line items referencing this product
+    # def ensure_not_referenced_by_any_cart_item
+    # 	if cart_items.empty?
+    # 		return true
+    # 	else
+    # 		errors.add(:base, 'Cart Items present')
+    # 		return false
     		
-    	end
+    # 	end
     	
-    end
+    # end
 end  
     

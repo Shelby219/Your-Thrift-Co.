@@ -3,11 +3,42 @@
 </header> 
 <body>
 
-<h2>Your Cart</h2>
 
-<%= render :template => 'cart_items/show' %>
 
+
+<main role="main">
+
+ <div class=" bg-light">
+          <p>
+          <h2>Bag</h2>
+          <%=  %>
+          </p>
+        <section class="container ">
+          <div class="column"> 
+            <div class="row">
+            <% @cart.cart_items.each do |cartitem| %>  
+                    <div class="column index-item-wrapper">
+                            <div class = "image-wrapper">
+                                    <div class="column">
+                                    <%= link_to image_tag(cartitem.item.images[0], class: " img-size-cart"), item_path(cartitem.item.id)  %> <br>
+                                                <div class="item-title-price">
+                                                <%= link_to cartitem.item.title, item_path(cartitem.item.id)%><br>
+                                                <%= cartitem.item.description %><br>
+                                                <%= number_to_currency cartitem.item.price %> <br>
+                                                <%= number_to_currency cartitem.item.shipping %>
+                                                </div>  
+                                     </div>  
+                                    <div class="column edit-delete-index">
+                                    <%= link_to 'Remove', delete_item_path(cartitem), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info" %>   
+                                </div>
+                    </div>
+            <%end%>
+                  
+            </div>
+         </div>
+     </section>
+    </div> 
+</main>
 </body>
 
 <%= render 'shared/footer'%> 
-  

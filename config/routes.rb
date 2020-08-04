@@ -24,12 +24,12 @@ Rails.application.routes.draw do
   get '/privacy', to: 'pages#privacy'
 
 
-  # Shopping Cart
-  resources :cart_items, only: [:create, :destroy]
-  get    'cart',     to: 'carts#index'
+  get '/mycart', to: 'carts#show'
+  post '/cart/:item_id', to: 'carts#create', as: "cart"
+  delete '/cart/item/:item_id', to: 'carts#destroy', as: "delete_item"
+  #resources :cart_items, only: [:create, :destroy]
+  #get    'cart',     to: 'carts#index'
   #delete "/cart/:cart_id/destroy/:item_id", to: "cart_items#destroy"
-  #post 'line_items' => "line_items#create"
-  #delete 'cart_items/:id' => "cart_items#destroy"
 end
     
 
