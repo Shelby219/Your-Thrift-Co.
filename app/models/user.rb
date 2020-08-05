@@ -10,7 +10,7 @@ class User < ApplicationRecord
   #has_many :items_to_buy, class_name: "Item", foreign_key: "buyer_id"
   #has_many :items_to_sell, class_name: "Item", foreign_key: "seller_id"
 
-
+  
 
 end
           

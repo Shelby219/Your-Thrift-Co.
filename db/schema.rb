@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_060737) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
-  end
+  end  
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
