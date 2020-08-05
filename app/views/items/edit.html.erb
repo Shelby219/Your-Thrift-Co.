@@ -2,12 +2,18 @@
 <%= render 'shared/nav'%>  
 </header> 
 <body>
-<h1>Editing Item</h1>
+<main role="main">    
+<div class=" bg-light">
+<h1>Edit Item</h1>
 
 <%= render 'form', item: @item %>
 
 <%= link_to 'Show', @item %> |
 <%= link_to 'Back', items_path %>
+</div>
+</div> 
+</div>  
+</main>
 </body>
-
+ 
 <%= render 'shared/footer'%> 

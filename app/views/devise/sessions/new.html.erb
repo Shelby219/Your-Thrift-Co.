@@ -1,12 +1,16 @@
-<body class = "main-user-container">
 
-<div class = "log-in-container">
+<header>
+<%= render 'shared/nav'%>  
+</header>    
+<body >
+<main class="main-user-container">  
+<div >
 <h1>Log In</h1>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
-                required: false,
+                required: false,  
                 autofocus: true,
                 input_html: { autocomplete: "email" }, placeholder: 'Email' %>
     <%= f.input :password,
@@ -20,6 +24,10 @@
   </div>
 <% end %>
     <div class="user-form-button">
-      <%= render "devise/shared/links" %>
+      <%= render "devise/shared/links" %>  
       </div>
+
+<div>
+</main>
 </body>
+<%= render 'shared/footer'%> 

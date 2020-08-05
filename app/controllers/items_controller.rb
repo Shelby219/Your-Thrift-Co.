@@ -16,10 +16,10 @@ class ItemsController < ApplicationController
       @category_id = Category.find_by(name: params[:category]).id
       @items = Item.where(category_id: @category_id).order('created_at DESC')
       end
-      #@categories = Category.all
+      @categories = Category.all.name
   end
 
-  # GET /items/1   
+  # GET /items/1    
   # GET /items/1.json
   def show
     session = Stripe::Checkout::Session.create(
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
           name: @item.title, 
           description: @item.description,
           amount: ((@item.price + @item.shipping) * 100).to_i,
-          currency: 'aud',
+          currency: 'aud',   
           quantity: 1,
       }],   
       payment_intent_data: {
@@ -47,6 +47,8 @@ class ItemsController < ApplicationController
   )
   #Session ID for stripe 
   @session_id = session.id
+  
+  
   end
 
   # GET /items/new
@@ -72,9 +74,8 @@ class ItemsController < ApplicationController
   def create
       @item = current_user.items.create(item_params)
       #@item = Item.new(item_params)
-  
 
-    respond_to do |format|
+    respond_to do |format|     
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
@@ -99,7 +100,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  # DELETE /items/1
+  # DELETE /items/1    
   # DELETE /items/1.json
   def destroy
     @item.destroy

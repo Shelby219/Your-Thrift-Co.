@@ -2,10 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
+.index-page-cards {
+  margin: 50px;
+  display: flex;    
+ 
+  flex-direction: row ;
+
+}
+ 
+
+
+
+
+.item-index-container {
+  display: flex;    
+  flex-wrap: wrap;
+  div.column {
+    padding: 10px;
+  }
+}
 .index-item-wrapper {
   display: flex;    
   flex-wrap: wrap;
   flex-direction: row;
+  box-shadow: 0 0 15px 0 grey;
+  
 }
 .index-item-wrapper:hover a {
   background-color: transparent !important;
@@ -17,9 +39,8 @@
     width: 200px;
     justify-content: center;
     height: auto;
-    padding: 20px;
-    margin-right: 10px;
-    margin-left: 10px;
+   
+    
   }
 .image-wrapper {
   border: 1px solid lightgrey; 
@@ -28,28 +49,55 @@
 
 .item-title-price {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: 10px;
+  color: black;
 }
-
-.edit-delete-index {
-  display: flex;
-  justify-content: space-evenly;
-}    
+ 
 
  /****Show page Formatting******/
+ 
 
- .show-image {   
-   width: 200px;
+ .show-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 50px;
+  box-shadow: 0 0 15px 0 grey;
+
+}
+ .show-image-wrap {
+  display: inline;
+  padding: 30px;
  }
- .carousel-control-prev:hover, .carousel-control-next:hover {
-  background-color: transparent !important;
- } 
+ 
+ .show-image {      
+   width: 300px;
+   
+
+ }
+
  .main-show-text {
      padding: 20px;
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     margin-top: 30px;
+
+     p, strong {
+      font-size: 1rem;
+     }  
  }
-  .show-container {
-    display: flex;
-    flex-flow: row wrap;
+
+  /****NEW page Formatting******/
+
+  .new-container {
+    display: flex;    
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    div {
+      justify-content: center;
+    }
 
   }
- 

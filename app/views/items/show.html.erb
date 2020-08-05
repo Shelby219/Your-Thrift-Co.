@@ -2,31 +2,33 @@
 <%= render 'shared/nav'%>  
 </header> 
 <body>
-    <div class="show-container">
+<main role="main">    
+<div class=" bg-light">
+    <div class="show-container">    
           
-            
+      <div class="show-image-wrap">       
                 <% @item.images.each do |image|%>
+                   <div class = "rounded d-block">
                     <%= image_tag image, class: "show-image" %> 
+                    </div>
                   <% end %>
-        
+      </div> 
           <div class=" main-show-text">
-
-                <%= @item.id %>
+              <p>
+              <strong>Seller:</strong>
+              <%= link_to @item.user.username, @item.user %>
+              </p>
               <p>
                 <strong>Title:</strong>
                 <%= @item.title %>
               </p>
 
               <p>
-                <strong>Price: $</strong>
-                <%= @item.price %>
+              <strong>Description:</strong>
+              <%= @item.description %>
               </p>
 
-              <p>
-                <strong>Description:</strong>
-                <%= @item.description %>
-              </p>
-
+             
               <p>
                 <strong>Size:</strong>
                 <%= @item.size %>
@@ -46,32 +48,41 @@
                 <strong>Location:</strong>
                 <%= @item.location %>
               </p>
-
+              
               <p>
-                <strong>Shipping: $</strong>    
-                <%= @item.shipping%>
+              <strong>Price:</strong>
+              <%= number_to_currency(@item.price) %>
               </p>
               <p>
-                <strong>Seller:</strong>
-                <%= link_to @item.user.username, @item.user %>
+                <strong>Shipping: </strong>    
+                <%= number_to_currency(@item.shipping)%>
               </p>
-              <p>
+              
+              <p>  
               <% if(current_user && current_user.id && (current_user.id == @item.user_id)) %>
-              <%= link_to 'Edit', edit_item_path(@item) %> 
+              <%= link_to 'Edit', edit_item_path(@item), :class => "btn btn-sm btn-outline-secondary" %> 
               <% end %>
+              </p>  
+              <p> 
+              <%= link_to 'Back', items_path, :class => "btn btn-sm btn-outline-secondary" %>
               </p>
-              <p>
-              <%= link_to 'Back', items_path %>
-              </p>
+              <p>    
               <% unless(current_user && current_user.id && (current_user.id == @item.user_id)) %>
-              <p>
-              <button data-stripe="payment">
-              Buy this Item
+              <%= link_to "Save to Bag", cart_path(@item), :method => :post, :class => "btn btn-outline-secondary " %>
+              <button class=" btn btn-outline-secondary" data-stripe="payment">
+              Buy Now
               </button>
-              </P>
-              <% end %>
+              <% end %>  
+              </p>      
+              
+              
           </div>
-    </div>  
+          
+    </div> 
+   
+
+  </div>  
+</main>
 </body>
  
 <%= render 'shared/footer'%> 

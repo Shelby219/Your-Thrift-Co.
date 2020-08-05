@@ -2,10 +2,7 @@ class Item < ApplicationRecord
     belongs_to :user
     has_many_attached :images
     belongs_to :category
-
-
-    
-    belongs_to :buyer, class_name: "User", optional: true
-    belongs_to :seller, class_name: "User"
+    has_many :cart_items, dependent: :destroy 
+    has_many :carts, through: :cart_items
 end
          

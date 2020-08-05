@@ -31,10 +31,10 @@
           
           <ul class = "nav-item">  
             <li class = " user-buttons">
-              <%= link_to 'Sell My Clothes', new_item_path, class: "user-buttons-do" %>
+              <%= link_to 'Sell My Clothes', new_item_path, class: "user-buttons-do " %>
             </li>
-            <% if user_signed_in? %>
-              <li class = "user-buttons">   
+            <% if user_signed_in? %>     
+              <li class = "user-buttons">        
                 <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "user-buttons-do"%>
               </li>
               <li class = "user-buttons">
@@ -43,8 +43,8 @@
               <li class = "user-buttons">
                 <%= link_to "Edit Profile", edit_user_registration_path, class: "user-buttons-do"%>
               </li>
-             
-            <% else %>
+              
+            <% else %>   
               <li class = "user-buttons">
                 <%= link_to "Log In", new_user_session_path, class: "user-buttons-do"%>
               </li>
@@ -60,11 +60,11 @@
     </div>
 
     <a class="navbar-brand" href="/">YOUR THRIFT CO.</a>
-
-    <i class="fas fa-shopping-bag"></i>
-  
+    <%= link_to mycart_path do %>
+    <i class="fas fa-shopping-bag"></i>  
+    <% end %>
 </nav>
-
+    
     
 
     

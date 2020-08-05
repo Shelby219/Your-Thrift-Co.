@@ -1,32 +1,51 @@
 
 
 
+
 <%= form_with(model: @item, local:true) do |f| %>
   <%= render "shared/error_messages" %>
-  <%= f.label :category %>
-  <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Choose a category" }%><br>
-  <%= f.label :title %>
-  <%= f.text_field :title, placeholder: '...' %><br>   
+    <div class="form-group">
+    <%= f.label :category %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Choose a category" }, :class => "form-control"%>
+    </div>
+    <div class="form-group">  
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: '...' , :class => "form-control" %>
+    </div>
+    <div class="form-group">
   <%= f.label :price %>
-  <%= f.text_field :price %><br>
+  <%= f.text_field :price, placeholder: '$', :class => "form-control" %>
+     </div>
+    <div class="form-group">
   <%= f.label :description %>
-  <%= f.text_area :description, size: '30x5', placeholder: '...' %><br>
+  <%= f.text_area :description, size: '30x5', placeholder: '...', :class => "form-control" %>
+     </div>
+    <div class="form-group">
   <%= f.label :size %>
-  <%= f.text_field  :size %><br>
+  <%= f.text_field  :size, :class => "form-control" %>
+    </div>
+    <div class="form-group">
   <%= f.label :colour %>
-  <%= f.text_field  :colour %><br>
+  <%= f.text_field  :colour, :class => "form-control" %>
+    </div>
+    <div class="form-group">
   <%= f.label :material %>
-  <%= f.text_field  :material %><br>
+  <%= f.text_field  :material, :class => "form-control" %>
+   </div>
+    <div class="form-group">
   <%= f.label :location %>
-  <%= f.text_field  :location%><br>
+  <%= f.text_field  :location, :class => "form-control"%>
+   </div>
+    <div class="form-group">
   <%= f.label :shipping %>
-  <%= f.text_field  :shipping%><br>
+  <%= f.text_field  :shipping, placeholder: '$', :class => "form-control"%>
+   </div>
+    <div class="form-group">
   <%= f.label :images %> 
-  <%= f.file_field :images, multiple: true , accept: 'image/png,image/gif,image/jpeg,image/jpg' %><br>
-
+  <%= f.file_field :images, multiple: true , accept: 'image/png,image/gif,image/jpeg,image/jpg', :class => "form-control" %>
+  </div>
 
   <%= f.submit %>
 <% end %>
-
 
 

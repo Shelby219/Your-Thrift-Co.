@@ -1,0 +1,47 @@
+<header>
+<%= render 'shared/nav'%>  
+</header> 
+<body>
+<main role="main">      
+ <div class=" bg-light">
+ <h2>Your Bag</h2>
+              <p> 
+              <%= link_to 'Back To Shopping', items_path, :class => "btn btn-sm btn-outline-secondary" %>
+              </p>
+        <section class="container ">
+          <div class="column">  
+            <div class="row">
+            
+            <% @cart.cart_items.each do |cartitem| %>  
+                    <div class=" column"> 
+                            <div class = "image-wrapper ">
+                                    <div class="column">
+                                    <%= link_to cartitem.item do %>
+                                    <%= image_tag(cartitem.item.images[0], class: " img-size-cart")%> <br>
+                                                <div class="item-title-price">
+                                                <%= cartitem.item.title %><br>
+                                                <%= cartitem.item.description %><br>
+                                                Price <%= number_to_currency cartitem.item.price %> <br>
+                                                Shipping <%= number_to_currency cartitem.item.shipping %>
+                                                </div>  
+                                     <% end %>
+                                     </div>  
+                                    <div class="column edit-delete-index">
+                                    <p>  
+                                    <%= link_to 'Remove', delete_item_path(cartitem), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary" %>   
+                                   
+                                    <button class=" btn btn-outline-secondary" data-stripe="payment">
+                                    Buy Now
+                                    </button>
+                                </p>
+                        </div>    
+                    </div>   
+              </div>   
+            <%end%>
+         </div>
+     </section>
+    </div> 
+</main>
+</body>
+
+<%= render 'shared/footer'%> 

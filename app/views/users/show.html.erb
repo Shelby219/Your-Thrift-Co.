@@ -2,53 +2,56 @@
 <%= render 'shared/nav'%>  
 </header> 
 <body>
-<%= link_to "All users", users_path %>
-<main class = "main-container" >
+
+<main>
+<div class = "main-container">
         <% if @user.avatar.attached? %>
             <%= image_tag @user.avatar, class: "img-fluid avatar-img" %>
         <% end %>
        
 <div class = "main-inner-text" >
             <h2><%= @user.username %></h2><br>
+            <%= @user.city %><br>
+            <%= @user.state %><br>
             <% if(current_user && current_user.id && (current_user.id == @user.id)) %>
              <%= @user.email %>
             <% end %>
         <% if(current_user && current_user.id && (current_user.id == @user.id)) %>
         <%= link_to "Edit Profile", edit_user_registration_path %> 
         <% end %>
-    </div>
-  
-</main>
-<hr class="featurette-divider">
-<section class="container ">
-          <div class="column"> 
-            <div class="row">   
-                  <% @user.items.each do |item| %>
-                    <div class="column index-item-wrapper">
-                      <%= link_to item do %>
-                        <div class = "image-wrapper">
-                        <div class="column">
-                            <%= image_tag item.images[0], :class => "img-size" %> <br>
-                            <div class="item-title-price">
-                            <%= item.title %><br>
-                            <span>$<%= item.price %></span>
-                            </div>  
-                           <% end %>
-                        </div>  
-                        <div class="column edit-delete-index">
-                            <% if(current_user && current_user.id && (current_user.id == item.user_id)) %>
-                            <%= link_to 'Edit', edit_item_path(item) %> 
-                            <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %> 
-                            <% end %>
-                        </div>
-                        </div>
-                    <%end%>
-            </div>
-        </div>
-  </div>
-            
-</section>
+    </div>  
+    </div> 
 
+<hr class="featurette-divider">
+
+<div class="bg-light">
+<h2 class="heading-profile "> My Listings</h2>
+        <section class="container item-index-container">
+        <% @user.items.each do |item| %>
+                    <div class="column ">
+                    <%= link_to item do %>
+                        <div class = "index-item-wrapper">
+                                <div class="column">
+                                <%= image_tag item.images[0], :class => "img-size" %> <br>
+                                            <div class="item-title-price">
+                                            <%= item.title %><br>
+                                            <span>$<%= item.price %></span>
+                                            </div>  
+                                      <% end %>
+
+                                    <div class=" btn-group">
+                                    <% if(current_user && current_user.id && (current_user.id == item.user_id)) %>
+                                    <%= link_to 'Edit', edit_item_path(item), :class => "btn btn-sm btn-outline-secondary" %> 
+                                    <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-secondary" %> 
+                                    <% end %>
+                                    </div>
+                              </div>
+                        </div>
+                      </div>
+                  <%end%>    
+        </section>
+    </div> 
+    </main>
 </body>
 
 <%= render 'shared/footer'%> 

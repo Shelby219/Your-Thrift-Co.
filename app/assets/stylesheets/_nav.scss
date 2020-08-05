@@ -4,10 +4,12 @@
     display: flex;
     justify-content: space-evenly;
     background-color: white !important;
+   
+     
   }   
  .fa-shopping-bag  {
    font-size: 20px;
- }       
+ }          
  .navbar-brand {
    letter-spacing: 2px;
  }
@@ -53,9 +55,9 @@
    border-color: transparent;
  }
  
- .dropdown-item:hover {
-   background-color: transparent;
-   border-color: transparent;
+ .dropdown-item:hover, #navbarDropdown:hover {
+   background-color: transparent !important;
+   border-color: transparent !important;
  }
  ul.nav-item {
    display: inline-block;
@@ -63,7 +65,7 @@
   li.user-buttons {
    list-style-type: none;
    font-size: 0.75rem;
-  
+   
  }
  
  .user-buttons  a, .user-buttons-do {
@@ -106,7 +108,7 @@
      z-index: 1; /* Stay on top */
      top: 0;
      left: 0;
-     background-color: black;
+     background-color: #817878;    
      overflow-x: hidden; /* Disable horizontal scroll */
      padding-top: 60px; /* Place content 60px from the top */
      transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
