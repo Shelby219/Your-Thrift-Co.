@@ -36,7 +36,7 @@ class CartsController < ApplicationController
   end
 
   private
-
+   
       def set_cart_item
         @item = Item.find(params[:item_id])
       end

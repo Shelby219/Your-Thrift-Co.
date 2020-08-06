@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:edit, :update, :destroy]
     before_action :set_user_item, only: [:edit, :update, :destroy]
+    before_action :set_user_payment, only: [:show]
     before_action :authenticate_user!
-
+  
     
 
     def index 
@@ -27,5 +28,10 @@ class UsersController < ApplicationController
           redirect_to item_path
       end
     end
+
+    def set_user_payment
+      id = Payment.find(params[:id])
+      @payment = current_user.payments.find_by_id(id)
+     end
   
 end

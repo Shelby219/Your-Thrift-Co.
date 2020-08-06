@@ -9,24 +9,25 @@ Rails.application.routes.draw do
     get 'sign_in', to: 'devise/sessions#new'
     #get 'users', to: 'devise/sessions#new'
   end
-  
-  resources :items
-  #get 'sign_in', to: 'items/user'
 
- # Root page   
+  # Items Routes
+  resources :items
+  
+
+ # ROOT page   
   root 'pages#home'  
  
-  # Pages just for Viewing 
+  # PAGES Routes
   get '/contact', to: 'pages#contact'
   get '/about', to: 'pages#about' 
   get '/terms', to: 'pages#terms'
   get '/support', to: 'pages#support'   
   get '/privacy', to: 'pages#privacy'
 
-  # .....
-  
-  get "/payments/success", to: "payments#success"
+  # PAYMENTS Routes
   post "/payments/webhook", to: "payments#webhook"
+  get "/payments/success", to: "payments#success"
+
   
   
 
