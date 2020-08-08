@@ -23,7 +23,7 @@
     </div> 
 
 <hr class="featurette-divider">
-
+   
 <div class="bg-light">
 <h2 class="heading-profile "> My Listings</h2>
         <section class="container item-index-container">
@@ -35,7 +35,7 @@
                                 <%= image_tag item.images[0], :class => "img-size" %> <br>
                                             <div class="item-title-price">
                                             <%= item.title %><br>
-                                            <span>$<%= item.price %></span>
+                                            <span><%= number_to_currency(item.price) %></span>
                                             </div>  
                                       <% end %>
 
@@ -44,14 +44,33 @@
                                     <%= link_to 'Edit', edit_item_path(item), :class => "btn btn-sm btn-outline-secondary" %> 
                                     <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-secondary" %> 
                                     <% end %>
-                                    </div>
+                                </div>
                               </div>
                         </div>
                       </div>
                   <%end%>    
         </section>
-    </div> 
+        <h2 class="heading-profile "> My Purchases</h2>
+        <section class="container item-index-container">
+        <div class="column ">
+                <% if user_signed_in? && current_user.buyer_payments.any? %>
+                <div class = "index-item-wrapper">
+                <div class="column">
+                        <% @bought_items.each do |bought_items| %>
+                            <%= image_tag bought_items.images[0], :class => "img-size" %> <br>
+                            <%= bought_items.title %><br>
+                            <span><%=number_to_currency(bought_items.price)  %></span>
+                        <% end %>
+                    </div>
+                </div>
+                <% end %>         
+        
+            </div> 
+        </section>
+      </div> 
     </main>
 </body>
 
 <%= render 'shared/footer'%> 
+
+

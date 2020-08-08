@@ -1,10 +1,14 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
   before_action :set_user_item, only: [:edit, :update, :destroy]
-  before_action :set_payment, only: [:show, :index]
+  #before_action :set_payment, only: [:show, :index]
   before_action :authenticate_user!
   
- 
+  def item_marked_paid
+    @payment= Payment.find_by_id(params[:item_id])
+
+    
+  end
     
   # GET /items       
   # GET /items.json
@@ -17,11 +21,12 @@ class ItemsController < ApplicationController
       @category_id = Category.find_by(name: params[:category]).id
       @items = Item.where(category_id: @category_id).order('created_at DESC')
       end
+      #@category_name = Item.where(category_id: @category_id).name
       #@categories = Category.all.name
 
-      #if @payment.buyer_id == @item.buyer_id
-     #   @paid = true 
-     # end
+      #if @payment.item_id == @item.item_id
+      #  @paid = true 
+      #end
   end
 
   # GET /items/1    
@@ -53,10 +58,11 @@ class ItemsController < ApplicationController
   #Session ID for stripe 
   @session_id = session.id
 
-    @item.payment
-      #if @payment.buyer_id == @item.buyer_id
-      #  @paid = true 
-      #end
+    #@item.payment
+   # @payment= Payment.find(params[:item_id])
+   # if @payment.item_id == @item.id
+    #  @paid = true 
+   # end
    
   end
 
@@ -134,12 +140,12 @@ class ItemsController < ApplicationController
       end
     end
     
-    def set_payment
-      @payment= Payment.find_by_id(params[:item_id])
-     end
+    #def set_payment
+     # @payment= Payment.find_by_id(params[:item_id])
+     #end
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :price, :description, :size, :colour, :material, :location, :shipping, :category_id, :buyer_id, :seller_id, images: [] )
+      params.require(:item).permit(:title, :price, :description, :size, :colour, :material, :location, :shipping, :category_id, images: [] )
     end
 end

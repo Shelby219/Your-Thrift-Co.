@@ -7,7 +7,7 @@ class Item < ApplicationRecord
 
     #belongs_to :buyer, class_name: "User", optional: true 
    # belongs_to :seller, class_name: "User"
-    #belongs_to :payment
+    has_one :payment
 
  #need to validate?
   validates :title, presence: true
@@ -19,8 +19,6 @@ class Item < ApplicationRecord
   validates :location, presence: true  
   validates :shipping, presence: true  
   validates :category_id, presence: true  
-  #validates :buyer_id, presence: true  
-  #validates :seller_id, presence: true  
   validates :images, presence: true  
 end
          

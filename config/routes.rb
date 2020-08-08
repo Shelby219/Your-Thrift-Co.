@@ -25,8 +25,8 @@ Rails.application.routes.draw do
   get '/privacy', to: 'pages#privacy'
 
   # PAYMENTS Routes
-  post "/payments/webhook", to: "payments#webhook"
   get "/payments/success", to: "payments#success"
+  post "/payments/webhook", to: "payments#webhook"
 
   
   

@@ -1,8 +1,8 @@
 class Payment < ApplicationRecord
 
-    belongs_to :item
+    belongs_to :item, dependent: :destroy 
     
-    belongs_to :buyer, class_name: 'User', foreign_key: :buyer_id
-    belongs_to :seller, class_name: 'User', foreign_key: :seller_id
+    belongs_to :buyer, :foreign_key => :buyer_id, class_name: "User"
+    belongs_to :seller, :foreign_key => :seller_id, class_name: "User"
 
 end
