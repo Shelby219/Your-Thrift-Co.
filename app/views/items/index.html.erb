@@ -4,54 +4,54 @@
 <%= render 'shared/nav'%>  
 </header> 
 <body>
+
+<% if current_page?(controller: 'items', action: 'index', category: @items.first.category.name) %>
+<h2 class="heading-profile"><%=  @items.first.category.name %> </h2>
+
+<% else current_page?(items_path) %>
+<h2 class="heading-profile">All Items </h2>
+
+<% end %>
 <main role="main">   
  
-    <% if current_page?(controller: 'items', action: 'index', category: @items.first.category.name) %>
-    <h2 class="heading-profile"><%=  @items.first.category.name %> </h2>
-
-    <% else current_page?(items_path) %>
-    <h2 class="heading-profile">All Items </h2>
-
-    <% end %>
+   
 
 <div class=" bg-light">
-        <section class="container item-index-container">
-     
-                  <% @items.each do |item| %>   
-
-             
-                    <div class="column ">        
-                      <%= link_to item do %>
-                        <div class = "index-item-wrapper">
-                                <div class="column">
-                                        <%= image_tag item.images[0], :class => "img-size " %> <br>
-                                            <div class="item-title-price">
-
-                                            <%= item.title %>
-                                            <span><%= number_to_currency(item.price) %></span>
-                                          
-                                            </div>  
-                                            <% if item.payment != nil && item.payment.paid == true  %> 
-                                            <p> SOLD</p>
+        
+<section class="container item-index-container">
+              
+      <div class="row">
+                  
+            <% @items.each do |item| %>  
+                    <div class=" column index-item-wrapper"> 
+                                  <div class = "image-wrapper ">
+                                        
+                                        <%= link_to item do %>
+                                          <%= image_tag item.images[0], :class => "img-size " %> <br>
+                                                        <div class="item-title-price">
+                                                        <%= item.title %><br>
+                                                    
+                                                        <span><%= number_to_currency(item.price) %></span> <br>
+                                                        </div>  
                                             <% end %>
-                                      <% end %>
-
-                                    <div class=" btn-group">
-                                        <% if(current_user && current_user.id && (current_user.id == item.user_id)) %>
-                                        <%= link_to 'Edit', edit_item_path(item), :class => "btn btn-sm btn-outline-secondary" %> 
-                                        <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-secondary" %> 
-                                        <% end %>
-                                    </div>
-
-                              </div>
-                        </div>
-                      </div>
-                  <%end%>
-                 
-               
-        </section>
+                                        
+                                        
+                                          
+                                              <div class=" btn-group">
+                                              <% if(current_user && current_user.id && (current_user.id == item.user_id)) %>
+                                              <%= link_to 'Edit', edit_item_path(item), :class => "btn btn-sm btn-outline-secondary" %> 
+                                              <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-secondary" %> 
+                                              <% end %>
+                                            </div> 
+                                            
+                                    </div>   
+                    </div>   
+            <%end%>
+      </div>
+</section>
     </div> 
 </main>
 </body>
 
 <%= render 'shared/footer'%> 
+

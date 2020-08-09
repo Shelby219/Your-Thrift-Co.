@@ -7,6 +7,22 @@
     width: 200px;
     justify-content: center;
     height: auto;
-   
-  }
+  } 
         
+
+  .remove-buy-cartitem {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .main-item-container {
+    display: flex;
+   flex-flow: row wrap;
+   padding: 0;
+   margin: 0;
+  }
+  .main-item-child {
+    font-size: 0.75rem;
+    
+  }
+ 

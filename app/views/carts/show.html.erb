@@ -6,40 +6,40 @@
  <div class=" bg-light">    
  <h2 class="heading-profile">Your Bag <br><%= link_to 'Back To Shopping', items_path, :class => "btn btn-sm btn-outline-secondary" %></h2>
             
-        <section class="container ">
-          <div class="column">  
-            <div class="row">
-            
+           
+ <section class="container item-index-container">
+         
+        <div class="row">
+        
             <% @cart.cart_items.each do |cartitem| %>  
-                    <div class=" column"> 
-                            <div class = "image-wrapper ">
-                                    <div class="column">
-                                    <%= link_to cartitem.item do %>
-                                    <%= image_tag(cartitem.item.images[0], class: " img-size-cart")%> <br>
-                                                <div class="item-title-price">
-                                                <%= cartitem.item.title %><br>
-                                                <%= cartitem.item.description %><br>
-                                                Price <%= number_to_currency cartitem.item.price %> <br>
-                                                Shipping <%= number_to_currency cartitem.item.shipping %>
-                                                </div>  
-                                     <% end %>
-                                     </div>  
-                                    <div class="column edit-delete-index">
-                                    <p>  
-                                    <%= link_to 'Remove', delete_item_path(cartitem), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary" %>   
-                                   
-                                    <button class=" btn btn-outline-secondary" data-stripe="payment">
-                                    Buy Now
-                                    </button>
-                                </p>
-                        </div>    
+                    <div class=" column index-item-wrapper"> 
+                                  <div class = "image-wrapper ">
+                                        
+                                            <%= link_to cartitem.item do %>
+                                            <%= image_tag(cartitem.item.images[0], class: " img-size-cart")%> <br>
+                                                        <div class="item-title-price">
+                                                        <%= cartitem.item.title %><br>
+                                                    
+                                                        Price <%= number_to_currency cartitem.item.price %> <br>
+                                                        Shipping <%= number_to_currency cartitem.item.shipping %>
+                                                        </div>  
+                                            <% end %>
+                                        
+                                        
+                                              <p class = "remove-buy-cartitem">  
+                                                      <%= link_to 'Remove', delete_item_path(cartitem), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-secondary" %>   
+                                                      <%= link_to 'Buy Item', item_path(cartitem.item), class: "btn btn-outline-secondary" %>   
+                                              </p>
+                                            
+                                    </div>   
                     </div>   
-              </div>   
             <%end%>
-         </div>
-     </section>
+        </div>
+</section>
+
     </div> 
 </main>
 </body>
 
 <%= render 'shared/footer'%> 
+

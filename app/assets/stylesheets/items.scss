@@ -3,30 +3,18 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.index-page-cards {
-  margin: 50px;
-  display: flex;    
- 
-  flex-direction: row ;
 
-}
- 
-
-
-
-
+/* MAIN STYLES FOR ITEMS */ /* USED BOTH ON ITEM INDEX PAGE, CART AND USER PAGE */
 .item-index-container {
   display: flex;    
   flex-wrap: wrap;
-  div.column {
-    padding: 10px;
-  }
 }
 .index-item-wrapper {
   display: flex;    
   flex-wrap: wrap;
   flex-direction: row;
   box-shadow: 0 0 15px 0 grey;
+  margin: 20px;
   
 }
 .index-item-wrapper:hover a {
@@ -37,14 +25,8 @@
 
 .img-size {
     width: 200px;
-    justify-content: center;
-    height: auto;
-   
-    
-  }
-.image-wrapper {
-  border: 1px solid lightgrey; 
-  margin: 20px;
+    max-height: 300px;
+    justify-content: center;  
 }
 
 .item-title-price {
@@ -54,6 +36,8 @@
   color: black;
 }
  
+
+
 
  /****Show page Formatting******/
  
@@ -73,8 +57,6 @@
  
  .show-image {      
    width: 300px;
-   
-
  }
 
  .main-show-text {
@@ -83,7 +65,6 @@
      flex-direction: column;
      flex-wrap: wrap;
      margin-top: 30px;
-
      p, strong {
       font-size: 1rem;
      }  
@@ -100,4 +81,13 @@
       justify-content: center;
     }
 
+  }
+
+  
+  /****NEW and EDIT page Formatting******/
+  .form-width {
+    padding-top: 50px;
+    max-width: 900px;
+    align-self: center;
+    
   }
