@@ -6,7 +6,7 @@
 
 /* MAIN STYLES FOR ITEMS */ /* USED BOTH ON ITEM INDEX PAGE, CART AND USER PAGE */
 .item-index-container {
-  display: flex;    
+  display: flex;      
   flex-wrap: wrap;
 }
 .index-item-wrapper {
@@ -15,6 +15,12 @@
   flex-direction: row;
   box-shadow: 0 0 15px 0 grey;
   margin: 20px;
+
+  .image-wrapper div.btn-group {
+    margin: 10px;
+   text-align: center;
+
+  }
   
 }
 .index-item-wrapper:hover a {
@@ -32,7 +38,7 @@
 .item-title-price {
   display: flex;
   justify-content: space-between;
-  margin: 10px;
+  margin: 10px 10px 5px 10px;
   color: black;
 }
  
