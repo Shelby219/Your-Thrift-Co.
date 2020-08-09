@@ -8,71 +8,55 @@
 
 
 
-/*****CONTACT MAIN CONTENT******/   
 
-
-
-
-
-
-
-
-
-/* Mobile Styles */ /** CONTACT CONTENT */
-@media only screen 
-and (max-device-width: 767px)     
-and (-webkit-min-device-pixel-ratio: 1) {
-    #name, #_replyto, #message {
-            width: 250px;
-    }
-  
-}
-/* Tablet Styles */ /** CONTACT CONTENT */
-@media only screen 
-and (min-device-width: 768px) 
-and (max-device-width: 1024px) 
-and (-webkit-min-device-pixel-ratio: 1) {
-    #name, #_replyto, #message {
-            width: 400px;
-    }     
-}
-/* Desktop Styles */ /* CONTACT CONTENT */
-@media only screen and (min-width: 996px) {
-   
-}
 /*****HOME MAIN CONTENT******/
     
-.home-page-images {
+.home-page-images {     
 margin-top: 90px;
 }
       
 .home-background {
   background-image:  url( 'https://images.unsplash.com/photo-1525562723836-dca67a71d5f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80');
-  background-size: cover;
-  
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  border-radius: 10px;
+
 }
 
 .home-main {
   margin-top: 50px;
 }
+
+.card-container{
+  background-color: white;
+  border-radius: 10px;
+  width: 300px !important;
+  float: left;
+  padding: 20px;
+  margin-top: 75px;
+}
+
 .card {
   width: 18rem !important;
-
+ 
 }
 
-.fix-z-index {
-  position: relative;
-  z-index: 0;
-
-}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
-/* Center align the text within the three columns below the carousel */
+/* Center align the text within the three columns */
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
   text-align: center;
+  position: relative;
+ 
+
+  img, h2 , p{
+    margin: 20px;
+  }
+ 
  
 }
 .marketing h2 {
@@ -86,9 +70,8 @@ margin-top: 90px;
 
 /* Featurettes
 ------------------------- */
-
 .featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  margin: 5rem 0; 
 }
 
 /* Thin out the marketing headings */
