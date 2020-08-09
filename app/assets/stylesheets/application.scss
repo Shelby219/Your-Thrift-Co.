@@ -64,6 +64,15 @@ main {
    margin-top: 50px;
 }
 
+.btn {
+
+
+}
+
+.btn:hover , .btn-group a.btn:hover {
+   background-color: gray !important;
+   color: #CDC382 !important;
+}
 
  /*****HEADINGS FOR EACH PAGE FORMATTING******/
  .page-headings {

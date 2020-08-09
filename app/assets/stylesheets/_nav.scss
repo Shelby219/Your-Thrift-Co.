@@ -5,11 +5,19 @@
     justify-content: space-evenly;
     background-color: white !important; 
     border-bottom: 0.5px lightgray solid;
- 
   }   
+  
  .fa-shopping-bag  {
    font-size: 20px;
- }          
+ }    
+
+
+ 
+ .fa-shopping-bag:hover,  .navbar a.shop-bag:hover {
+  background-color: transparent !important;
+  color: #CDC382 !important;
+ }
+
  .navbar-brand {
    letter-spacing: 2px;
    font-weight: 800;
@@ -96,7 +104,7 @@
    color:grey !important;
  }
  
- 
+
  
  
 
@@ -109,7 +117,7 @@
      z-index: 1; /* Stay on top */
      top: 0;
      left: 0;
-     background-color: #817878;    
+     background-color: #CDC382;    
      overflow-x: hidden; /* Disable horizontal scroll */
      padding-top: 60px; /* Place content 60px from the top */
      transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
