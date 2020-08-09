@@ -1,4 +1,8 @@
 class Item < ApplicationRecord
+
+  include PgSearch::Model
+
+  
     belongs_to :user
     has_many_attached :images
     belongs_to :category
@@ -20,5 +24,9 @@ class Item < ApplicationRecord
   validates :shipping, presence: true  
   validates :category_id, presence: true  
   validates :images, presence: true  
+
+
+
+
 end
          

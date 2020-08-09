@@ -19,7 +19,6 @@
   .image-wrapper div.btn-group {
     margin: 10px;
    text-align: center;
-
   }
   
 }
@@ -42,7 +41,14 @@
   color: black;
 }
  
-
+.buttons-other {
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px;
+  a {
+    margin: 2px;
+  }
+}
 
 
  /****Show page Formatting******/
