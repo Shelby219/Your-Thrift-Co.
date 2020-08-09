@@ -3,15 +3,16 @@
 .main-nav  {
     display: flex;
     justify-content: space-evenly;
-    background-color: white !important;
-   
-     
+    background-color: white !important; 
+    border-bottom: 0.5px lightgray solid;
+ 
   }   
  .fa-shopping-bag  {
    font-size: 20px;
  }          
  .navbar-brand {
    letter-spacing: 2px;
+   font-weight: 800;
  }
  .navbar-brand:hover, .fa-shopping-cart:hover{
    background-color: transparent;
@@ -77,9 +78,9 @@
    color:white !important;
  }
  
- #navbarDropdown:hover, .closebtn:hover  {
+ #navbarDropdown:hover, .closebtn:hover ,.openbtn.fa-bars:hover {
   color:grey !important;
-
+  background-color: transparent !important;
  }
  .user-buttons-do:hover, .dropdown-item li a:hover {
    background-color: transparent;
