@@ -5,51 +5,18 @@
    
 
 @import "variables"; 
+
+
+
 /*****CONTACT MAIN CONTENT******/   
 
-#name, #_replyto, #message {
-    display: block;
-    padding: 10px;
-    margin: 20px 0px 20px 0px;
-    border: 1px solid #ccc;
-    width: 600px;
-    align-self: left;
-}
-#message {
-    height: 300px;     
-}
 
-#email-form {
-    margin-right: 20px; 
-    margin-left: 20px; 
-}
-.form-label{
- background-color: $alternate-color;
- border-radius: 25px;
- padding: 5px;
- color: $text-color;
- font-size: 1rem;
-}
 
-input[type=submit] {
-    background-color: $heading-color;
-    color: $white-color;
-    padding: 12px 20px;
-    border-radius: 30px; 
-    padding: 10px 20px 10px 20px;
-    font-family: $body-font-family;
-    font-size: 1rem;
-   
-  }
-input[type=submit]:hover {
-    background-color: $alternate-color;
-    cursor: pointer;
-    color: $hover-color;
-  }
-input[type=submit]:active  {
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
+
+
+
+
+
 
 /* Mobile Styles */ /** CONTACT CONTENT */
 @media only screen 

@@ -1,46 +1,58 @@
-.main-user-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color:  #a88a72;
-    border-radius: 50%; 
-    h1 {
-        text-align: center;
-    }
-}   
 
-
-
-
-
-.user-form-button-1 {
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    margin-bottom: -20px;   
-}
-.user-form-button {
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-}
-.user-form-button a {
-    width: 100%;
-    border-radius: 25px;
-    padding: 0px 50px 0px 50px;
+/* User sign in and sign forms. */
+.border-form-div {
+    max-width: 300px;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+    background-color: #E2D3D3;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    h3, h4{
+           text-align: center;
+       
+         }
+  }
+  .border-form-div .form-signin-heading,
+  .border-form-div .checkbox {
     margin-bottom: 10px;
-    text-align: center;
-    text-decoration: none;
-    color:black !important;
+  }
+  .border-form-div input[type="text"],
+  .border-form-div input[type="email"],
+  .border-form-div input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+  }
+
+  .cancel , .log-in-other{
+    margin-top: 50px;
+  }
+
+
+
+
+
+
+/* Tablet Styles */ /** CORE DEVISE */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) 
+and (-webkit-min-device-pixel-ratio: 1) {
+    .border-form-div {
+       
+      max-width: 400px;
+    }
+     
 }
-.submit-button {
-    color:black !important;
+/* Desktop Styles */ /* DEVISE */
+@media only screen and (min-width: 996px) {
+    .border-form-div {
+    max-width: 600px;
 }
-.submit-button:hover, .user-form-button a:hover {
-    background-color: transparent;
-    text-decoration: none;
-    color: white !important;
-}
+   }
