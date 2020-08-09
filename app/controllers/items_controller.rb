@@ -6,10 +6,13 @@ class ItemsController < ApplicationController
   
   def item_marked_paid
     @payment= Payment.find_by_id(params[:item_id])
-
-    
   end
-    
+
+  def category_title
+    Category.all.each do |c_name|
+        c_name.name
+        end
+  end
   # GET /items       
   # GET /items.json
   def index
@@ -21,13 +24,8 @@ class ItemsController < ApplicationController
       @category_id = Category.find_by(name: params[:category]).id
       @items = Item.where(category_id: @category_id).order('created_at DESC')
       end
-      #@category_name = Item.where(category_id: @category_id).name
-      #@categories = Category.all.name
-
-      #if @payment.item_id == @item.item_id
-      #  @paid = true 
-      #end
-  end
+      
+   end
 
   # GET /items/1    
   # GET /items/1.json
@@ -57,12 +55,6 @@ class ItemsController < ApplicationController
   )
   #Session ID for stripe 
   @session_id = session.id
-
-    #@item.payment
-   # @payment= Payment.find(params[:item_id])
-   # if @payment.item_id == @item.id
-    #  @paid = true 
-   # end
    
   end
 

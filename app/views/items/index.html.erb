@@ -4,24 +4,29 @@
 <%= render 'shared/nav'%>  
 </header> 
 <body>
-<main role="main">    
+<main role="main">   
+ 
+    <% if current_page?(controller: 'items', action: 'index', category: @items.first.category.name) %>
+    <h2 class="heading-profile"><%=  @items.first.category.name %> </h2>
+
+    <% else current_page?(items_path) %>
+    <h2 class="heading-profile">All Items </h2>
+
+    <% end %>
+
 <div class=" bg-light">
-
         <section class="container item-index-container">
-        <% if current_page?(items_path) %>
-        <h2 class="heading-profile">All Items </h2>
-        <% else current_page?(items_path(category: Category.name))  %>
-        <h2 class="heading-profile"><%=  @items.first.category.name %> </h2>
-
-        <% end %>
-       
+     
                   <% @items.each do |item| %>   
+
+             
                     <div class="column ">        
                       <%= link_to item do %>
                         <div class = "index-item-wrapper">
                                 <div class="column">
                                         <%= image_tag item.images[0], :class => "img-size " %> <br>
                                             <div class="item-title-price">
+
                                             <%= item.title %>
                                             <span><%= number_to_currency(item.price) %></span>
                                           
