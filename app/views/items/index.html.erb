@@ -31,7 +31,11 @@
                                                         <span><%= number_to_currency(item.price) %></span> 
                                                         </div>  
                                             <% end %>
-                                        
+
+
+                                            <% if item.payment != nil && item.payment.paid == true  %>  
+                                            <p class = "sold">SOLD</p>
+                                              <% else %> 
                                         
                                               <div class = "buttons-other" >
                                               <% if(current_user && current_user.id && (current_user.id == item.user_id)) %>
@@ -39,7 +43,7 @@
                                               <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-secondary" %> 
                                               <% end %>
                                             </div> 
-                                            
+                                              <% end %> 
                                     </div>   
                     </div>      
             <%end%>

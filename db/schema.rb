@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_233315) do
     t.string "title"
     t.decimal "price", precision: 10, scale: 2, default: "0.0"
     t.text "description"
-    t.string "size"
+    t.string "size"  
     t.string "colour"
     t.string "material"
     t.string "location"

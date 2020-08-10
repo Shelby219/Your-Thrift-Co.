@@ -19,7 +19,7 @@
         <% end %>
     </div>  
     </div> 
-
+   
 <hr class="featurette-divider">
 <h2 class="heading-profile "> My Listings</h2>   
 <div class="bg-light">
@@ -33,7 +33,7 @@
                 <div class="row">
                 <% @user.items.each do |item| %>
                             <div class=" column index-item-wrapper"> 
-                                        <div class = "image-wrapper ">
+                                        <div class = "image-wrapper ">    
                                                 
                                                 <%= link_to item do %>
                                                     <%= image_tag item.images[0], :class => "img-size" %> 
@@ -43,16 +43,18 @@
                                                                 <span><%= number_to_currency(item.price) %> </span> 
                                                                 
                                                                 </div>   
-                                                    <% end %>
+                                                    <% end %>    
                                                 
-                                                
+                                            <% if item.payment != nil && item.payment.paid == true  %> 
+                                            <p class = "sold ">SOLD</p>
+                                            <% else %> 
                                                     <div class="btn-group remove-buy-cartitem">
                                                     <% if(current_user && current_user.id && (current_user.id == item.user_id)) %>
                                                     <%= link_to 'Edit', edit_item_path(item), :class => "btn btn-sm btn-outline-secondary" %> 
                                                     <%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-outline-secondary" %> 
                                                     <% end %>
                                                     </div>
-                                                    
+                                            <% end %>      
                                             </div>   
                             </div>   
                     <%end%>
@@ -64,7 +66,7 @@
 <h2 class="heading-profile "> My Purchases</h2>
 
 <% if @bought_items.empty?  %>
-<h4>No Purchases </h4>
+<h4>No Purchases </h4>     
 <%else%>
         <section class="container item-index-container">
         <div class="row">

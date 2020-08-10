@@ -42,8 +42,8 @@ Another notable purpose of the application is the ability for users to, in a sen
 - Items - This functionality involves a few components. The user once logged in is able to browse through items by category and view them either via category pages, or individually and also via clicking on a user profile the items up for sale by that user will be available. 
 
 - Categories - The feature enables items to be categorized which them ables viewing via categories, which will enable and search and filter feature functionality for future.
-
-- Shopping Bag - The feature enables users to when purchasing items, to add them to their shopping bags. The shopping bag will work via displaying the items the user would like to purchase, grouping them via seller. Then displaying a button to purchase each item. The idea will be the user can purchase groups of items grouped together via seller, however this feature will be for future. 
+ 
+- Shopping Bag - The feature enables users to when viewing items, to add them to their shopping bags. The shopping bag will work via displaying the items the user would like to purchase, grouping them via seller (which is a future plan). Then displaying a button to purchase each item. The idea will be the user can purchase groups of items grouped together via seller, however this feature will be for future. 
 
 - Comments - NTH - This feature enables users to leave comments on item listings. 
 
@@ -53,7 +53,7 @@ Another notable purpose of the application is the ability for users to, in a sen
 
 - Reviews - NTH - The feature enables users to leave a review via a completed purchase on other users. So if a user has made a purchase from another user, the seller can leave a review on the buyer and vise versa. This allows for users to maintain a review rating out of 5 stars. 
 
-- Search Function- 
+- Search Function- NTH- This feature enables users to search for items in a search bar, using results from title, description, material, colour and size.
 
 ### Sitemap
 
@@ -121,10 +121,12 @@ Nice to Have Features
 -----
 ## Wireframes for your app
 
-   
-
-  
-
+### Mobile Wireframes
+![Mobile Wireframes](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Mobile.png)
+### Tablet Wireframes
+![Tablet Wireframes](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Tablet.png)
+### Desktop Wireframes
+![Desktop Wireframes](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Desktop.png)
 
 -----
 ## An ERD for your app

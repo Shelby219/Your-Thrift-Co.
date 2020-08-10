@@ -56,10 +56,10 @@
                 <%= number_to_currency(@item.shipping)%>
               </p>
 
-              <% if @item.payment != nil && @item.payment.paid == true  %> 
-                 <p>SOLD</p>
+              <% if @item.payment != nil && @item.payment.paid == true  %>  
+              <p class = "sold">SOLD</p>
                 <% else %> 
-                    <p>  
+                    <p>       
                     <% if(current_user && current_user.id && (current_user.id == @item.user_id)) %>
                     <%= link_to 'Edit', edit_item_path(@item), :class => "btn btn-sm btn-outline-secondary" %> 
                     <% end %>
