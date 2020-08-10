@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head>  
     <title>YtCo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,11 +11,10 @@
 
     <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/7edf7d6684.js" crossorigin="anonymous"></script>
-
+    
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 
 
     <!-- Many of our components require the use of JavaScript to function. Specifically, they require jQuery, Popper.js, and our own JavaScript plugins. Place the following <script>s near the end of your pages, right before the closing </body> tag, to enable them. jQuery must come first, then Popper.js, and then our JavaScript plugins. -->
@@ -27,13 +26,39 @@
   
     </head>
 
+
+  <header>
+  
+  <% if notice %>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+            
+  <% end %>
+  
+  <% if alert %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <%= alert %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% end %>
+  
+  <%= render 'shared/nav'%> </header>
   <body>
-  <p id="notice"><%= notice %></p>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  
+ 
+
+ 
+
     <%= yield %>
   </body>
- 
-  
+  <footer>
+  <%= render 'shared/footer'%> 
+  </footer>
 </html>
       

@@ -1,10 +1,10 @@
-<p id="notice"><%= notice %></p>
 
-<header>
-<%= render 'shared/nav'%>  
-</header> 
+
 <body>
 
+
+<main role="main">   
+ 
 <% if current_page?(controller: 'items', action: 'index', category: @items.first.category.name) %>
 <h2 class="heading-profile"><%=  @items.first.category.name %> </h2>
 
@@ -12,9 +12,6 @@
 <h2 class="heading-profile">All Items </h2>
 
 <% end %>
-<main role="main">   
- 
-   
 
 <div class=" bg-light">
         
@@ -52,5 +49,5 @@
 </main>
 </body>
 
-<%= render 'shared/footer'%> 
+
 

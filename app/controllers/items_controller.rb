@@ -90,7 +90,7 @@ class ItemsController < ApplicationController
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
-    end
+    end   
   end
 
   # PATCH/PUT /items/1

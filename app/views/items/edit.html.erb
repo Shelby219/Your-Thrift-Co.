@@ -1,8 +1,4 @@
 
-
-<header>
-<%= render 'shared/nav'%>  
-</header> 
 <body>
 <main role="main">   
 <h2 class="heading-profile "> Edit Item</h2> 
@@ -16,13 +12,13 @@
                         <%= render 'form', item: @item %>
 
 
-                        <%= link_to 'Show', @item %> |
-                        <%= link_to 'Back', items_path %>
+                        <%= link_to 'Go to Item', @item, :class => "btn btn-sm btn-outline-secondary" %> 
+                        <%= link_to 'Back', items_path, :class => "btn btn-sm btn-outline-secondary" %>
                         </div>
                 </div>      
         </div>  
 </main>
 </body>
  
-<%= render 'shared/footer'%> 
+
 

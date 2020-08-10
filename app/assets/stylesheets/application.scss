@@ -35,6 +35,7 @@
 
 body {
    margin: 0px;
+
    padding: 0px;
    min-height: 125vh;
    display: grid;
@@ -61,15 +62,26 @@ main {
    width: 100%;
    max-width: 1100px;
    margin-bottom: 200px;
-   margin-top: 50px;
+   margin-top: 150px;
 }
 
-.btn:hover , .btn-group a.btn:hover, .remove-buy-cartitem a.btn:hover{
+.btn:hover , .btn-group a.btn:hover, .remove-buy-cartitem a.btn:hover, .buttons-other a.btn:hover{
    background-color: gray !important;
    color: #CDC382 !important;
-}  
+}     
 
-
+input[type=submit] {
+   padding: 5px;
+   border: solid 0.5px gray;
+   border-radius: 5px;
+   background-color: #CDC382 !important;
+   color: black !important;
+   margin-bottom: 10px;
+}
+input[type=submit]:hover {
+   background-color: gray !important;
+   color: #CDC382 !important;
+}
  /*****Title headings FOR EACH PAGE FORMATTING******/
 .heading-profile {
    background-color: #CDC382 !important;

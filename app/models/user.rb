@@ -3,17 +3,22 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :items
+         validates_presence_of :username
+         validates_uniqueness_of :username, :uniqueness => true
+         validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+         validate :validate_username
+
+
+         def validate_username
+          if User.where(email: username).exists?
+            errors.add(:username, :invalid)
+          end
+        end
+
+  has_many :items, dependent: :destroy
   has_one_attached :avatar
   has_one :cart
-  
-  #has_many :items_to_buy, class_name: "Item", foreign_key: "buyer_id"
-  #has_many :items_to_sell, class_name: "Item", foreign_key: "seller_id"
 
-  #has_many :items_to_buy, class_name: "Item", foreign_key: "buyer_id", dependent: :destroy #referring to same table with different key - self ref
-  #has_many :tems_to_sell, class_name: "item", foreign_key: "seller_id", dependent: :destroy #destroys posts if user is destroyed
-  #has_many :payments
- # has_many :payments, :foreign_key => :buyer_id
   has_many :buyer_payments, foreign_key: "buyer_id", class_name: "Payment"
   has_many :seller_payments, foreign_key: "seller_id", class_name: "Payment"
 
