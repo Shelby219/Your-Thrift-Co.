@@ -158,15 +158,15 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 -----
 ## Detail any third party services that your app will use
 
-- Bootstrap: This Ruby Gem was installed and utilised for front-end styling. 
+- **Bootstrap:** This Ruby Gem was installed and utilised for front-end styling. 
 
-- Devise: This Ruby Gem was installed to handle user authentication and user account creation. The ability of the current_user method meant that authorisation and authentication within the application is possible. Users can create an account using their email, a username and a password that Devise authenticates. Once an account is created and logged in, the user can also add additional details such as an avatar and address details, the Devise Gem was easily configured to allow for additional parameters for accounts and account management. 
+- **Devise:** This Ruby Gem was installed to handle user authentication and user account creation. The ability of the current_user method meant that authorisation and authentication within the application is possible. Users can create an account using their email, a username and a password that Devise authenticates. Once an account is created and logged in, the user can also add additional details such as an avatar and address details, the Devise Gem was easily configured to allow for additional parameters for accounts and account management. 
 
-- Amazon Web Services: This Ruby Gem was installed to be able to manage image uploading on the application via Amazon Web Services. This function is used for item listing creation and also for Users being able to upload an Avatar.
+- **Amazon Web Services:** This Ruby Gem was installed to be able to manage image uploading on the application via Amazon Web Services. This function is used for item listing creation and also for Users being able to upload an Avatar.
 
-- Stripe: This Ruby Gem was installed to allow and manage payments for items listed. Stripe API provides secure payment services which are handle outside of the application. Not done in this assignment, however Stripe does allow for management of funds within a Stripe account, so when a User purchases an item, Stripe would allow the ability to forward those funds to the seller. 
+- **Stripe:** This Ruby Gem was installed to allow and manage payments for items listed. Stripe API provides secure payment services which are handle outside of the application. Not done in this assignment, however Stripe does allow for management of funds within a Stripe account, so when a User purchases an item, Stripe would allow the ability to forward those funds to the seller. 
 
-- Pg_search: This Ruby Gem was installed to enable a search function for items listing, searches will produce results based on title, description, colour, material and size. 
+- **Pg_search:** This Ruby Gem was installed to enable a search function for items listing, searches will produce results based on title, description, colour, material and size. 
 
 -----
 ## Describe your projects models in terms of the relationships (active record associations) they have with each other
@@ -352,7 +352,7 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 
 Trello was used as the primary way of tracking the details of this project.
 
-The tags used were
+The tags used were:
 
 - Rubric
 - MVP
@@ -362,19 +362,19 @@ The tags used were
 - Double Check
 - Small, Medium and Hard Colours
 
-Rubric: This column was implemented as a clear and distinct way of monitoring the Rubric Requirements so as to ensure these were all covered and implemented in the project. This column was more as a reminder down the side of the Trello Board.
+**Rubric:** This column was implemented as a clear and distinct way of monitoring the Rubric Requirements so as to ensure these were all covered and implemented in the project. This column was more as a reminder down the side of the Trello Board.
 
-Requirement Overview: This column was implemented as a clear distinction between the MVP requirements and the optional ones. With tags used to clarify these. 
+**Requirement Overview:** This column was implemented as a clear distinction between the MVP requirements and the optional ones. With tags used to clarify these. 
 
-Documentation(Readme.md): This column was implemented as a task management for all the documentation requirements. Structured in the same order as the sections on the Readme.md documentation.
+**Documentation(Readme.md):** This column was implemented as a task management for all the documentation requirements. Structured in the same order as the sections on the Readme.md documentation.
 
-Features/Plan: This column was the main column which had a list of the features for implementation, these were primarily marked as either MVP or Nice to have, to ensure that the MVP features were done first. Some of the Nice to Have features did not make it on to the application at this stage, however the MVP ones were made first priority and were completed. 
+**Features/Plan:** This column was the main column which had a list of the features for implementation, these were primarily marked as either MVP or Nice to have, to ensure that the MVP features were done first. Some of the Nice to Have features did not make it on to the application at this stage, however the MVP ones were made first priority and were completed. 
 
-User Story: This column was implemented as the first draft structure of the user stories, this ensured that the implementation of the features, did follow along with the base user stories. The tags nice to have and MVP were also utilised here and proved essential. 
+**User Story:** This column was implemented as the first draft structure of the user stories, this ensured that the implementation of the features, did follow along with the base user stories. The tags nice to have and MVP were also utilised here and proved essential. 
 
-Testing: This column was implemented to add any cards which held features that were being tested, or needed testing. 
+**Testing:** This column was implemented to add any cards which held features that were being tested, or needed testing. 
 
-To Fix: This column was implemented to keep track of any errors that needed fixing. 
+**To Fix:** This column was implemented to keep track of any errors that needed fixing. 
 
 
 
