@@ -166,53 +166,45 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 
 - Stripe: This Ruby Gem was installed to allow and manage payments for items listed. Stripe API provides secure payment services which are handle outside of the application. Not done in this assignment, however Stripe does allow for management of funds within a Stripe account, so when a User purchases an item, Stripe would allow the ability to forward those funds to the seller. 
 
-- Pg_search: This Ruby Gem was installed to 
-
-   
+- Pg_search: This Ruby Gem was installed to enable a search function for items listing, searches will produce results based on title, description, colour, material and size. 
 
 -----
 ## Describe your projects models in terms of the relationships (active record associations) they have with each other
 
 ### Implemented Features
 
-User has_many :items, dependent: :destroy
-User has_one_attached :avatar
-User has_one :cart
-User has_many :buyer_payments, foreign_key: "buyer_id", class_name: "Payment"
-User has_many :seller_payments, foreign_key: "seller_id", class_name: "Payment"
+- User has_many :items, dependent: :destroy
+- User has_one_attached :avatar
+- User has_one :cart
+- User has_many :buyer_payments, foreign_key: "buyer_id", class_name: "Payment"
+- User has_many :seller_payments, foreign_key: "seller_id", class_name: "Payment"
 
+- Item belongs_to :user
+- Item has_many_attached :images   
+- Item belongs_to :category
+- Item has_many :cart_items, dependent: :destroy 
+- Item has_many :carts, through: :cart_items
 
-Item belongs_to :user
-Item has_many_attached :images   
-Item belongs_to :category
-Item has_many :cart_items, dependent: :destroy 
-Item has_many :carts, through: :cart_items
+- Item  has_one :payment
+- Category has many :items
 
-Item  has_one :payment
-Category has many :items
+- Cart_item belongs_to :cart 
+- Cart_item belongs_to :item
 
-Cart_item belongs_to :cart 
-Cart_item belongs_to :item
-
-Cart belongs_to :user
-Cart has_many :cart_items, dependent: :destroy 
-Cart has_many :items, through: :cart_items
+- Cart belongs_to :user
+- Cart has_many :cart_items, dependent: :destroy 
+- Cart has_many :items, through: :cart_items
 
 
 ### Nice to have features not yet implemented 
 
-User has many buyer reviews through reviews
-User has many seller reviews through review
+- User has many buyer reviews through reviews
+- User has many seller reviews through review
 
-User has many :comments, through :items
-Item has many :comments, dependent: :destroy 
-
-@item.comments.create(comment_params) will work
-Comment belongs to :User
-Comment belongs to :Item
-(for this the Item Id Would need to be available for the comment)
-
-
+- User has many :comments, through :items
+- Item has many :comments, dependent: :destroy #item.comments.create(comment_params) will work
+- Comment belongs to :User
+- Comment belongs to :Item
 
 -----
 ## Discuss the database relations to be implemented in your application
@@ -220,7 +212,6 @@ Comment belongs to :Item
 ### User
 
 ![ERD-User](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/UserERD.png)
-
 
 
 ### Item
@@ -243,8 +234,117 @@ Comment belongs to :Item
 ## Provide your database schema design
 
 
+```
+    ActiveRecord::Schema.define(version: 2020_08_09_233315) do
 
+    # These are extensions that must be enabled in order to support this database
+    enable_extension "plpgsql"
 
+    create_table "active_storage_attachments", force: :cascade do |t|
+        t.string "name", null: false
+        t.string "record_type", null: false
+        t.bigint "record_id", null: false
+        t.bigint "blob_id", null: false
+        t.datetime "created_at", null: false
+        t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+        t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+    end
+
+    create_table "active_storage_blobs", force: :cascade do |t|
+        t.string "key", null: false
+        t.string "filename", null: false
+        t.string "content_type"
+        t.text "metadata"
+        t.bigint "byte_size", null: false
+        t.string "checksum", null: false
+        t.datetime "created_at", null: false
+        t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+    end
+
+    create_table "cart_items", force: :cascade do |t|
+        t.bigint "cart_id", null: false
+        t.bigint "item_id", null: false
+        t.index ["cart_id", "item_id"], name: "index_cart_items_on_cart_id_and_item_id"
+        t.index ["item_id", "cart_id"], name: "index_cart_items_on_item_id_and_cart_id"
+    end
+
+    create_table "carts", force: :cascade do |t|
+        t.datetime "created_at", precision: 6, null: false
+        t.datetime "updated_at", precision: 6, null: false
+        t.bigint "user_id"
+        t.index ["user_id"], name: "index_carts_on_user_id"
+    end
+
+    create_table "categories", force: :cascade do |t|
+        t.string "name"
+        t.datetime "created_at", precision: 6, null: false
+        t.datetime "updated_at", precision: 6, null: false
+    end
+
+    create_table "items", force: :cascade do |t|
+        t.string "title"
+        t.decimal "price", precision: 10, scale: 2, default: "0.0"
+        t.text "description"
+        t.string "size"  
+        t.string "colour"
+        t.string "material"
+        t.string "location"
+        t.datetime "created_at", precision: 6, null: false
+        t.datetime "updated_at", precision: 6, null: false
+        t.bigint "user_id", null: false
+        t.decimal "shipping", precision: 10, scale: 2, default: "0.0"
+        t.integer "category_id"
+        t.index ["user_id"], name: "index_items_on_user_id"
+    end
+
+    create_table "payments", force: :cascade do |t|
+        t.bigint "buyer_id", null: false
+        t.bigint "seller_id", null: false
+        t.boolean "paid", default: false
+        t.bigint "item_id", null: false
+        t.index ["buyer_id"], name: "index_payments_on_buyer_id"
+        t.index ["seller_id"], name: "index_payments_on_seller_id"
+    end
+
+    create_table "pg_search_documents", force: :cascade do |t|
+        t.text "content" 
+        t.string "searchable_type"
+        t.bigint "searchable_id"
+        t.datetime "created_at", precision: 6, null: false
+        t.datetime "updated_at", precision: 6, null: false
+        t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+    end
+
+    create_table "users", force: :cascade do |t|
+        t.string "email", default: "", null: false
+        t.string "encrypted_password", default: "", null: false
+        t.string "reset_password_token"
+        t.datetime "reset_password_sent_at"
+        t.datetime "remember_created_at"
+        t.datetime "created_at", precision: 6, null: false
+        t.datetime "updated_at", precision: 6, null: false
+        t.string "name"
+        t.string "username"
+        t.string "address"
+        t.string "city"
+        t.string "state"
+        t.integer "post_code"
+        t.index ["email"], name: "index_users_on_email", unique: true
+        t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+        t.index ["username"], name: "index_users_on_username", unique: true
+    end
+
+    add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+    add_foreign_key "cart_items", "carts"
+    add_foreign_key "cart_items", "items"
+    add_foreign_key "carts", "users"
+    add_foreign_key "items", "users"
+    add_foreign_key "payments", "items"
+    add_foreign_key "payments", "users", column: "buyer_id"
+    add_foreign_key "payments", "users", column: "seller_id"
+    end
+
+```
 -----
 ## Describe the way tasks are allocated and tracked in your project
 
