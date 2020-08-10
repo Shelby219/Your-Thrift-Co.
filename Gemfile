@@ -68,6 +68,5 @@ gem "aws-sdk-s3", require: false
 
 
 gem "stripe", "~> 5.22"
-gem 'cancancan'
 gem 'ultrahook'
 gem 'pg_search'
