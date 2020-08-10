@@ -61,7 +61,13 @@ Another notable purpose of the application is the ability for users to, in a sen
 
 ### Screenshots
 
-
+![Shot of Site 1](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site1.png)
+![Shot of Site 2](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site2.png)
+![Shot of Site 3](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site3.png)
+![Shot of Site 4](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site4.png)
+![Shot of Site 5](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site5.png)
+![Shot of Site 6](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site6.png)
+![Shot of Site 7](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site7.png)
 
 ### Target audience
 
@@ -81,7 +87,6 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 - AWS (Cloud Storage)
 - Stripe (third party payment system)
 - Devise (authentication gem)
-- Rolify (authorization gem)
 - Github (source control)
 - Balsamiq (wireframe mockups)
 - Unsplash (free stock images)
@@ -92,21 +97,33 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 -----
 ## User stories for your app
 
-MVP Features
+### MVP Features
 
-- As a User I should be able to sign up
-- As a User I should be able to log in
-- As a User I should be able to edit my profile details
-- As a User I should have a profile dashboard that shows my details and my own items listed
-- As a User to sell I should be able to list my items for sale on the marketplace
+#### User Operation 
+
+- As a User I want to be able to sign up.
+- As a User I want to be able to log in.
+- As a User I want to be able to log out.
+- As a User I want to be able to delete my account.
+- As a User I want to be able to edit my account profile details.
+- As a User I want have a profile dashboard that shows my details and my own items listed.
+- As a User to sell I should be able to list my items for sale on the marketplace.
 - As a User I was to browse listings via navigation bar via category
 - As a User buying I should be able to add items to my bag, edit bag and remove items
 - As a User viewing my bag, items are group by the seller. With purchase buttons under each item.
-- As a User I should be able to make a purchase of an item either via the item show page, or a button via the shopping bag
-- As a User I should be able to see my items (receipts) Sold and my items purchases as separate lists
-- As a User I should be able to see the above with the which status pending
+- As a User I should be able to make a purchase of an item.
+- As a User I should be able to see my items (receipts) Sold and my items purchases as separate lists.
 
-Nice to Have Features
+#### Authentication & Authorisation:
+
+- As a User buying or selling, I do not want other users to be able to access my account in order to keep my data safe.
+- As a User I want have a profile dashboard that does not show my private details (email etc) on the public dashboard for other users viewing.
+- As a User I want my profile dashboard to not show my own purchases to the public.
+- As a User selling, I do not want other users to be able to edit or delete my listings.
+- As a User buying or selling, I do not want other users to see my shopping bag.
+- As a User selling, I do not want to see options to buy my own items.
+
+### Nice to Have Features
 
 - As a User I want to leave comments on items
 - As a User I want to like other user's items 
@@ -138,29 +155,88 @@ Nice to Have Features
 
 
 
-
-
-
 -----
 ## Detail any third party services that your app will use
 
-- Bootstrap
+- Bootstrap: This Ruby Gem was installed and utilised for front-end styling. 
 
-- Devise
+- Devise: This Ruby Gem was installed to handle user authentication and user account creation. The ability of the current_user method meant that authorisation and authentication within the application is possible. Users can create an account using their email, a username and a password that Devise authenticates. Once an account is created and logged in, the user can also add additional details such as an avatar and address details, the Devise Gem was easily configured to allow for additional parameters for accounts and account management. 
 
--
+- Amazon Web Services: This Ruby Gem was installed to be able to manage image uploading on the application via Amazon Web Services. This function is used for item listing creation and also for Users being able to upload an Avatar.
 
+- Stripe: This Ruby Gem was installed to allow and manage payments for items listed. Stripe API provides secure payment services which are handle outside of the application. Not done in this assignment, however Stripe does allow for management of funds within a Stripe account, so when a User purchases an item, Stripe would allow the ability to forward those funds to the seller. 
 
+- Pg_search: This Ruby Gem was installed to 
+
+   
 
 -----
 ## Describe your projects models in terms of the relationships (active record associations) they have with each other
 
+### Implemented Features
+
+User has_many :items, dependent: :destroy
+User has_one_attached :avatar
+User has_one :cart
+User has_many :buyer_payments, foreign_key: "buyer_id", class_name: "Payment"
+User has_many :seller_payments, foreign_key: "seller_id", class_name: "Payment"
+
+
+Item belongs_to :user
+Item has_many_attached :images   
+Item belongs_to :category
+Item has_many :cart_items, dependent: :destroy 
+Item has_many :carts, through: :cart_items
+
+Item  has_one :payment
+Category has many :items
+
+Cart_item belongs_to :cart 
+Cart_item belongs_to :item
+
+Cart belongs_to :user
+Cart has_many :cart_items, dependent: :destroy 
+Cart has_many :items, through: :cart_items
+
+
+### Nice to have features not yet implemented 
+
+User has many buyer reviews through reviews
+User has many seller reviews through review
+
+User has many :comments, through :items
+Item has many :comments, dependent: :destroy 
+
+@item.comments.create(comment_params) will work
+Comment belongs to :User
+Comment belongs to :Item
+(for this the Item Id Would need to be available for the comment)
 
 
 
 -----
 ## Discuss the database relations to be implemented in your application
 
+### User
+
+![ERD-User](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/UserERD.png)
+
+
+
+### Item
+
+
+### Cart
+
+### Cart_items
+
+### Payment
+
+### Buyer_payments
+
+### Seller_payments
+
+### Active Storage
 
 
 -----

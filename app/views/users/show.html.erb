@@ -21,7 +21,11 @@
     </div> 
    
 <hr class="featurette-divider">
+<% if(current_user.id == @user.id) %>
 <h2 class="heading-profile "> My Listings</h2>   
+<% else %>  
+<h2 class="heading-profile "> Shop </h2>   
+<% end %>  
 <div class="bg-light">
 
         
@@ -34,7 +38,7 @@
                 <% @user.items.each do |item| %>
                             <div class=" column index-item-wrapper"> 
                                         <div class = "image-wrapper ">    
-                                                
+                                                 
                                                 <%= link_to item do %>
                                                     <%= image_tag item.images[0], :class => "img-size" %> 
                                                                 <div class="item-title-price">
@@ -63,32 +67,33 @@
 <%end%>
 
 <hr class="featurette-divider">
-<h2 class="heading-profile "> My Purchases</h2>
+<% if(current_user.id == @user.id) %>
+   <h2 class="heading-profile "> My Purchases</h2>
 
-<% if @bought_items.empty?  %>
-<h4>No Purchases </h4>     
-<%else%>
-        <section class="container item-index-container">
-        <div class="row">
-                <% if user_signed_in? && current_user.buyer_payments.any? %>
-                    <% @bought_items.each do |bought_items| %>
-                        <div class=" column index-item-wrapper"> 
-                            <div class = "image-wrapper ">
-                                        <%= image_tag bought_items.images[0], :class => "img-size" %> <br>
-                                            <div class="item-title-price">
-                                            <%= bought_items.title %><br>
-                                            <%=number_to_currency(bought_items.price)  %>
-                                            </div>
-                      
-                            </div>
-                        </div>
-                <% end %>
-            
-        </div> 
+        <% if @bought_items.empty?  %>
+        <h4>No Purchases </h4>     
+        <%else%>
+                <section class="container item-index-container">
+                <div class="row">
+                        <% if user_signed_in? && current_user.buyer_payments.any? %>
+                            <% @bought_items.each do |bought_items| %>
+                                <div class=" column index-item-wrapper"> 
+                                    <div class = "image-wrapper ">
+                                                <%= image_tag bought_items.images[0], :class => "img-size" %> <br>
+                                                    <div class="item-title-price">
+                                                    <%= bought_items.title %><br>
+                                                    <%=number_to_currency(bought_items.price)  %>
+                                                    </div>
+                            
+                                    </div>
+                                </div>
+                        <% end %>
+                    
+                </div> 
         <% end %>     
-        </section>
+            </section>
 <%end%>
-
+<% end %>   
 
 
       </div> 
