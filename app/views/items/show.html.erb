@@ -66,7 +66,7 @@
                     </p>  
                     <p> 
                     <%= link_to 'Back', items_path, :class => "btn btn-sm btn-outline-secondary" %>
-                    </p>
+                    </p>    
                     <p>    
                     <% unless(current_user && current_user.id && (current_user.id == @item.user_id)) %>
                     <%= link_to "Save to Bag", cart_path(@item), :method => :post, :class => "btn btn-outline-secondary " %>

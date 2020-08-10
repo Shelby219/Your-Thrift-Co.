@@ -1,18 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
   before_action :set_user_item, only: [:edit, :update, :destroy]
-  #before_action :set_payment, only: [:show, :index]
-  before_action :authenticate_user!
   
-  def item_marked_paid
-    @payment= Payment.find_by_id(params[:item_id])
-  end
-
-  def category_title
-    Category.all.each do |c_name|
-        c_name.name
-        end
-  end
+  before_action :authenticate_user!
+       
+ 
   # GET /items       
   # GET /items.json
   def index
@@ -132,10 +124,6 @@ class ItemsController < ApplicationController
       end
     end
     
-    #def set_payment
-     # @payment= Payment.find_by_id(params[:item_id])
-     #end
-
     # Only allow a list of trusted parameters through.
     def item_params
       params.require(:item).permit(:title, :price, :description, :size, :colour, :material, :location, :shipping, :category_id, images: [] )

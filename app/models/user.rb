@@ -22,5 +22,7 @@ class User < ApplicationRecord
   has_many :buyer_payments, foreign_key: "buyer_id", class_name: "Payment"
   has_many :seller_payments, foreign_key: "seller_id", class_name: "Payment"
 
+
+  has_many :reviews
 end
                
