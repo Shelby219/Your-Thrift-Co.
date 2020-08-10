@@ -348,8 +348,42 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 -----
 ## Describe the way tasks are allocated and tracked in your project
 
+* [Trelloboard](https://trello.com/b/S6sdFZNw/yourthriftco) - Link to Trello Board
+
+Trello was used as the primary way of tracking the details of this project.
+
+The tags used were
+
+- Rubric
+- MVP
+- Nice to Have
+- Docs
+- Completed
+- Double Check
+- Small, Medium and Hard Colours
+
+Rubric: This column was implemented as a clear and distinct way of monitoring the Rubric Requirements so as to ensure these were all covered and implemented in the project. This column was more as a reminder down the side of the Trello Board.
+
+Requirement Overview: This column was implemented as a clear distinction between the MVP requirements and the optional ones. With tags used to clarify these. 
+
+Documentation(Readme.md): This column was implemented as a task management for all the documentation requirements. Structured in the same order as the sections on the Readme.md documentation.
+
+Features/Plan: This column was the main column which had a list of the features for implementation, these were primarily marked as either MVP or Nice to have, to ensure that the MVP features were done first. Some of the Nice to Have features did not make it on to the application at this stage, however the MVP ones were made first priority and were completed. 
+
+User Story: This column was implemented as the first draft structure of the user stories, this ensured that the implementation of the features, did follow along with the base user stories. The tags nice to have and MVP were also utilised here and proved essential. 
+
+Testing: This column was implemented to add any cards which held features that were being tested, or needed testing. 
+
+To Fix: This column was implemented to keep track of any errors that needed fixing. 
 
 
+
+![Trello Shot 1](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Trello1.png)
+![Trello Shot 2](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Trello2.png)
+![Trello Shot 3](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Trello3.png)
+![Trello Shot 4](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Trello4.png)
+![Trello Shot 5](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Trello5.png)
+![Trello Shot 6](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Trello6.png)
 
 
 -----
