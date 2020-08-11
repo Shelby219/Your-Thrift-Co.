@@ -77,15 +77,15 @@ Another notable purpose of the application is the ability for users to, in a sen
 ![Shot of Site 4](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site4.png)
 ##### User Profile
 ![Shot of Site 5](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site5.png)
-##### My Listings
-![Shot of Site 6](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site6.png)
 ##### My Purchases
-![Shot of Site 7](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site7.png)
+![Shot of Site 6](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site6.png)
 ##### Edit User
-![Shot of Site 8](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site8.png)
+![Shot of Site 7](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site7.png)
 ##### Log In
-![Shot of Site 9](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site9.png)
+![Shot of Site 8](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site8.png)
 ##### Sign Up
+![Shot of Site 9](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site9.png)
+##### Shopping Bag
 ![Shot of Site 10](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site10.png)
 
 
