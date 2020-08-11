@@ -74,6 +74,10 @@ Another notable purpose of the application is the ability for users to, in a sen
 ![Shot of Site 5](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site5.png)
 ![Shot of Site 6](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site6.png)
 ![Shot of Site 7](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site7.png)
+![Shot of Site 8](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site8.png)
+![Shot of Site 9](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site9.png)
+![Shot of Site 10](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site10.png)
+
 
 ### Target audience
 
@@ -211,9 +215,6 @@ Your Thrift Co. is a two-sided marketplace created via Ruby on Rails using the M
 - **Pages:** This is a collection of static page views, no data is needed for these pages in the controller, therefore the view is primarily html code. 
 
 - **Carts:** This view is a show view for a users cart. It enables a user that is logged in to view their own cart items they have saved for purchases. 
-
-- **Payments:**  This view is a simple payment success page, which on a successful payment on Stripe gets rendered. 
-
 
 
 
