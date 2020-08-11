@@ -255,7 +255,7 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 
 ![ERD-Reviews](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/ReviewERD.png)
 
-- **Payment:** This relation functions via an item being able to have one review from a user. Users then are able to have many reviews. The accessibility of this table is done via the users profile. One a user making a purchase and that purchase going into the users bought items. A review button becomes available with that user able to make a review on that item purchased via a rating and a comment. This review then becomes accessed via a users items reviews. 
+- **Review:** This relation functions via an item being able to have one review from a user. Users then are able to have many reviews. The accessibility of this table is done via the users profile. One a user making a purchase and that purchase going into the users bought items. A review button becomes available with that user able to make a review on that item purchased via a rating and a comment. This review then becomes accessed via a users items reviews. 
 
 ### Active Storage
 
