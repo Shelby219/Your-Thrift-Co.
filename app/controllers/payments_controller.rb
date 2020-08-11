@@ -6,8 +6,7 @@ class PaymentsController < ApplicationController
    #before_action :set_payment, only: [:webhook]
    
     def success
-
-
+      redirect_to items_path, notice: 'You have successfully made a payment!'
     end
  
      def webhook

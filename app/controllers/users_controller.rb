@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @users = User.all 
     end
         
-    def show   
+    def show     
       @user = User.find_by_id(params[:id]) 
       #@bought_items = current_user.buyer_payments.items
       #@sold_items = current_user.seller_payments

@@ -178,6 +178,7 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 - User has_one :cart
 - User has_many :buyer_payments, foreign_key: "buyer_id", class_name: "Payment"
 - User has_many :seller_payments, foreign_key: "seller_id", class_name: "Payment"
+- User has_many :reviews
 
 - Item belongs_to :user
 - Item has_many_attached :images   
@@ -185,7 +186,9 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 - Item has_many :cart_items, dependent: :destroy 
 - Item has_many :carts, through: :cart_items
 
-- Item  has_one :payment
+- Item has_one :payment
+- Item has_one :review
+
 - Category has many :items
 
 - Cart_item belongs_to :cart 
@@ -194,12 +197,11 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 - Cart belongs_to :user
 - Cart has_many :cart_items, dependent: :destroy 
 - Cart has_many :items, through: :cart_items
-
+   
+- Review belongs_to :user
+- Review belongs_to :item
 
 ### Nice to have features not yet implemented 
-
-- User has many buyer reviews through reviews
-- User has many seller reviews through review
 
 - User has many :comments, through :items
 - Item has many :comments, dependent: :destroy #item.comments.create(comment_params) will work
@@ -213,136 +215,186 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 
 ![ERD-User](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/UserERD.png)
 
+- **User:** This is the foundation database relation. It houses the core user information. 
 
 ### Item
+
+![ERD-Item](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/ItemERD.png)
+
+- **Item:** An item belongs to one user only. This relation handles all the item specific data. This data is also what is used for Stripe implementation for a third party payment service. 
+
+## Category 
+
+![ERD-Category](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/CategoryERD.png)
+
+- **Category:** This database information is just for reference within an item. This enables reference to the Categories created in the seed data. The item index pages displays items grouped via this category reference. This idea of this structure was that new categories were not needed for creation, however in future if needed they could be via seed data.
 
 
 ### Cart
 
+![ERD-Cart](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/CartERD.png)
+
+- **Cart:** This relation handles all cart_items. Its purpose is to gather per user cart_items for displaying. An user owns one cart. 
+
 ### Cart_items
+
+![ERD-Cart_items](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Cart_itemsERD.png)
+
+- **Cart_items:** This relation is a join table between cart and items. Meaning a new cart_item is created when a user wants to add an item to their shopping cart. This ensures items can be added and removed for a user cart as a cart_item meaning the actual item will not deleted from the database. 
 
 ### Payment
 
-### Buyer_payments
+#### Buyer_payments and Seller_payments
 
-### Seller_payments
+![ERD-Payments](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/PaymentsERD.png)
+
+- **Payment:** This relation is operated via creation on completion of a successful webhook for an item payment. This means once a user has purchased an item via stripe the webhook processes a new payment. An item has one payment and a user can have buyer_payments and seller_payments. These confirmed payments are grouped for access via the user controller. New arrays for buyer payments and seller payments are created for accessing this data on the users profile. This is done via the foreign keys of buyer_id and seller_id which are accessed from the payment model to the user model. The buyer_id is the current user's id that is logged in and seller_id is the items user id attached. A key part of this table is the boolean of paid, which enables an item to be marked as paid for viewing purposes. This is a basic form of data creation for a payment. In future an orders table might be more efficient and enable purchases by seller grouped together. 
+
+
+### Review
+
+![ERD-Reviews](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/ReviewERD.png)
+
+- **Payment:** This relation functions via an item being able to have one review from a user. Users then are able to have many reviews. The accessibility of this table is done via the users profile. One a user making a purchase and that purchase going into the users bought items. A review button becomes available with that user able to make a review on that item purchased via a rating and a comment. This review then becomes accessed via a users items reviews. 
 
 ### Active Storage
 
+![ERD-Active Storage](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/ActiveStorageERD.png)
+
+- **Active Storage:** The active storage tables relate to image upload. An item can have many images attached and a user can have one avatar attached. These being reference in the models user and item. This table is the table that holds the data relating to these records. If it is an avatar record then it will relate to the user and if it is an item image, it will relate to the item table. 
+
+### Other future Tables
+
+![ERD-Other](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/OtherERD.png)
+![ERD-Other2](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Other2ERD.png)
+- **Other:** Future tables for implementation include the ability for an item to have likes and comments and the ability for user to have followers.
 
 -----
 ## Provide your database schema design
 
 
 ```
-    ActiveRecord::Schema.define(version: 2020_08_09_233315) do
+    ActiveRecord::Schema.define(version: 2020_08_10_231356) do
 
-    # These are extensions that must be enabled in order to support this database
-    enable_extension "plpgsql"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
-    create_table "active_storage_attachments", force: :cascade do |t|
-        t.string "name", null: false
-        t.string "record_type", null: false
-        t.bigint "record_id", null: false
-        t.bigint "blob_id", null: false
-        t.datetime "created_at", null: false
-        t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-        t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-    end
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
 
-    create_table "active_storage_blobs", force: :cascade do |t|
-        t.string "key", null: false
-        t.string "filename", null: false
-        t.string "content_type"
-        t.text "metadata"
-        t.bigint "byte_size", null: false
-        t.string "checksum", null: false
-        t.datetime "created_at", null: false
-        t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-    end
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
-    create_table "cart_items", force: :cascade do |t|
-        t.bigint "cart_id", null: false
-        t.bigint "item_id", null: false
-        t.index ["cart_id", "item_id"], name: "index_cart_items_on_cart_id_and_item_id"
-        t.index ["item_id", "cart_id"], name: "index_cart_items_on_item_id_and_cart_id"
-    end
+  create_table "cart_items", force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.bigint "item_id", null: false
+    t.index ["cart_id", "item_id"], name: "index_cart_items_on_cart_id_and_item_id"
+    t.index ["item_id", "cart_id"], name: "index_cart_items_on_item_id_and_cart_id"
+  end
 
-    create_table "carts", force: :cascade do |t|
-        t.datetime "created_at", precision: 6, null: false
-        t.datetime "updated_at", precision: 6, null: false
-        t.bigint "user_id"
-        t.index ["user_id"], name: "index_carts_on_user_id"
-    end
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
 
-    create_table "categories", force: :cascade do |t|
-        t.string "name"
-        t.datetime "created_at", precision: 6, null: false
-        t.datetime "updated_at", precision: 6, null: false
-    end
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
-    create_table "items", force: :cascade do |t|
-        t.string "title"
-        t.decimal "price", precision: 10, scale: 2, default: "0.0"
-        t.text "description"
-        t.string "size"  
-        t.string "colour"
-        t.string "material"
-        t.string "location"
-        t.datetime "created_at", precision: 6, null: false
-        t.datetime "updated_at", precision: 6, null: false
-        t.bigint "user_id", null: false
-        t.decimal "shipping", precision: 10, scale: 2, default: "0.0"
-        t.integer "category_id"
-        t.index ["user_id"], name: "index_items_on_user_id"
-    end
+  create_table "items", force: :cascade do |t|
+    t.string "title"
+    t.decimal "price", precision: 10, scale: 2, default: "0.0"
+    t.text "description"
+    t.string "size"
+    t.string "colour"
+    t.string "material"
+    t.string "location"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.decimal "shipping", precision: 10, scale: 2, default: "0.0"
+    t.integer "category_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
 
-    create_table "payments", force: :cascade do |t|
-        t.bigint "buyer_id", null: false
-        t.bigint "seller_id", null: false
-        t.boolean "paid", default: false
-        t.bigint "item_id", null: false
-        t.index ["buyer_id"], name: "index_payments_on_buyer_id"
-        t.index ["seller_id"], name: "index_payments_on_seller_id"
-    end
+  create_table "payments", force: :cascade do |t|
+    t.bigint "buyer_id", null: false
+    t.bigint "seller_id", null: false
+    t.boolean "paid", default: false
+    t.bigint "item_id", null: false
+    t.index ["buyer_id"], name: "index_payments_on_buyer_id"
+    t.index ["seller_id"], name: "index_payments_on_seller_id"
+  end
 
-    create_table "pg_search_documents", force: :cascade do |t|
-        t.text "content" 
-        t.string "searchable_type"
-        t.bigint "searchable_id"
-        t.datetime "created_at", precision: 6, null: false
-        t.datetime "updated_at", precision: 6, null: false
-        t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
-    end
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
 
-    create_table "users", force: :cascade do |t|
-        t.string "email", default: "", null: false
-        t.string "encrypted_password", default: "", null: false
-        t.string "reset_password_token"
-        t.datetime "reset_password_sent_at"
-        t.datetime "remember_created_at"
-        t.datetime "created_at", precision: 6, null: false
-        t.datetime "updated_at", precision: 6, null: false
-        t.string "name"
-        t.string "username"
-        t.string "address"
-        t.string "city"
-        t.string "state"
-        t.integer "post_code"
-        t.index ["email"], name: "index_users_on_email", unique: true
-        t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-        t.index ["username"], name: "index_users_on_username", unique: true
-    end
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.integer "rating", default: 0
+    t.text "comment", default: "f"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
-    add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-    add_foreign_key "cart_items", "carts"
-    add_foreign_key "cart_items", "items"
-    add_foreign_key "carts", "users"
-    add_foreign_key "items", "users"
-    add_foreign_key "payments", "items"
-    add_foreign_key "payments", "users", column: "buyer_id"
-    add_foreign_key "payments", "users", column: "seller_id"
-    end
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "username"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.integer "post_code"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cart_items", "carts"
+  add_foreign_key "cart_items", "items"
+  add_foreign_key "carts", "users"
+  add_foreign_key "items", "users"
+  add_foreign_key "payments", "items"
+  add_foreign_key "payments", "users", column: "buyer_id"
+  add_foreign_key "payments", "users", column: "seller_id"
+  add_foreign_key "reviews", "items"
+  add_foreign_key "reviews", "users"
+end
+
 
 ```
 -----
