@@ -274,24 +274,12 @@ Your Thrift Co. is a two-sided marketplace created via Ruby on Rails using the M
 
 ### Nice to have features not yet implemented 
 
-<<<<<<< HEAD
 - User has many :comments, through :items
-=======
-- User has many buyer reviews through reviews
-- User has many seller reviews through review
-
-- User has many :comments, through :items         #item.comments.create(comment_params) will work
->>>>>>> reviews
 - Item has many :comments, dependent: :destroy 
 - Comment belongs to :User
 - Comment belongs to :Item
-
-
-- User has_many :buyer_reviews, foreign_key: "buyer_id", class_name: "Review"
-- User has_many :seller_reviews, foreign_key: "seller_id", class_name: "Review"
-
-- Review belongs_to :buyer, :foreign_key => :buyer_id, class_name: "Review"
-- Review belongs_to :seller, :foreign_key => :seller_id, class_name: "Review"
+- Item has many likes, dependent: :destroy 
+- User has many likes, through :items
 
 -----
 
