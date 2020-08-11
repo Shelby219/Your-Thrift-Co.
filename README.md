@@ -87,6 +87,8 @@ Another notable purpose of the application is the ability for users to, in a sen
 ![Shot of Site 9](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site9.png)
 ##### Shopping Bag
 ![Shot of Site 10](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site10.png)
+##### User Reviews
+![Shot of Site 10](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site11.png)
 
 
 ### Target audience
