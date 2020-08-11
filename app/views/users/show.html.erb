@@ -44,9 +44,7 @@
                                                     <%= image_tag item.images[0], :class => "img-size" %> 
                                                                 <div class="item-title-price">
                                                                 <%= item.title %><br>
-                                                            
                                                                 <span><%= number_to_currency(item.price) %> </span> 
-                                                                
                                                                 </div>   
                                                     <% end %>    
                                                 
@@ -86,7 +84,9 @@
                                                                                 <%= bought_items.title %><br>
                                                                                 <%=number_to_currency(bought_items.price)  %>
                                                                                 </div>
+                                                                                <% if bought_items.review == true %>
                                                                                 <%= link_to 'Review', new_review_path(item_id: bought_items.id), :class => "btn btn-outline-secondary " %>
+                                                                                <% end %>
                                                                     <% end %>
   
                                                         </div>      
@@ -96,9 +96,8 @@
                                 </div> 
                                      
                     </section>
-    <%end%>
+       <%end%>
 <% end %>   
-
       </div> 
     </main>
 </body>
