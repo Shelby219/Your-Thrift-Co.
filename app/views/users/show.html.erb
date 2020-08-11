@@ -8,7 +8,8 @@
         <% end %>
        
 <div class = "main-inner-text" >
-            <h2><%= @user.username %></h2><br>
+            <h2><%= @user.username %></h2><%= link_to "Seller Reviews", user_reviews_path, :class => "btn btn-sm btn-outline-success" %> 
+            <br>
             <%= @user.city %><br>
             <%= @user.state %><br>  
             <% if(current_user && current_user.id && (current_user.id == @user.id)) %>
@@ -67,36 +68,44 @@
 <%end%>    
 
 <hr class="featurette-divider">
-<% if(current_user.id == @user.id) %>
-   <h2 class="heading-profile "> My Purchases</h2>
+    <% if(current_user.id == @user.id) %>
+    <h2 class="heading-profile "> My Purchases</h2>
 
-        <% if @bought_items.empty?  %>
-        <h4>No Purchases </h4>        
-        <%else%>
-                <section class="container item-index-container">
-                <div class="row">
-                        <% if user_signed_in? && current_user.buyer_payments.any? %>
-                            <% @bought_items.each do |bought_items| %>
-                                <div class=" column index-item-wrapper"> 
-                                    <div class = "image-wrapper ">
-                                                <%= image_tag bought_items.images[0], :class => "img-size" %> <br>
-                                                    <div class="item-title-price">
-                                                    <%= bought_items.title %><br>
-                                                    <%=number_to_currency(bought_items.price)  %>
-                                                    </div>
-                            
-                                    </div>
-                                </div>
-                        <% end %>
-                    
-                </div> 
-        <% end %>     
-            </section>
-<%end%>
+            <% if @bought_items.empty?  %>
+            <h4>No Purchases </h4>         
+            <%else%>
+                    <section class="container item-index-container">
+                                <div class="row">
+                                        <% if user_signed_in? && current_user.buyer_payments.any? %>
+                                            <% @bought_items.each do |bought_items| %>
+                                                <div class=" column index-item-wrapper"> 
+                                                                <div class = "image-wrapper ">
+                                                                    <%= link_to bought_items do %>
+                                                                            <%= image_tag bought_items.images[0], :class => "img-size" %> <br>
+                                                                                <div class="item-title-price">
+                                                                                <%= bought_items.title %><br>
+                                                                                <%=number_to_currency(bought_items.price)  %>
+                                                                                </div>
+                                                                                <%= link_to 'Review', new_review_path(item_id: bought_items.id), :class => "btn btn-outline-secondary " %>
+                                                                    <% end %>
+  
+                                                        </div>      
+                                                </div>  
+                                        <% end %>
+                                        <% end %>    
+                                </div> 
+                                     
+                    </section>
+    <%end%>
 <% end %>   
-
 
       </div> 
     </main>
 </body>
+
+
+
+
+     
+
 

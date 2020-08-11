@@ -6,6 +6,7 @@ class Item < ApplicationRecord
     has_many :carts, through: :cart_items
 
     has_one :payment
+    has_one :review
 
   #validation for items.
     validates :title, format: { with: /\A[a-zA-Z0-9 ]*(?:\R[a-zA-Z0-9 ]*)*\z/, :multiline => true, message: "should only contain alpha-numeric characters" }

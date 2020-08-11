@@ -1,0 +1,29 @@
+    
+<body>
+<main role="main">    
+<div class=" bg-light">
+    <div class="show-container">    
+    <h2 class="heading-profile ">Reviews</h2>
+
+                <% if @user_reviews.empty? %>
+                <div class='row'>
+                <h5> You have no reviews yet</h5>
+                </div>   
+                <% else %>  
+                        <section class="container item-index-container">
+                                <div class="row">
+                                          <% @user_reviews.each do |user_review| %>
+                                              <%= user_reviews.rating %>
+                                              <%= user_reviews.comment %>  
+                                        <% end %>  
+
+                                </div>                     
+                    </section>
+              <% end %>  
+    </div>    
+  </div>  
+</main>
+</body>
+ 
+
+
