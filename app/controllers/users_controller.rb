@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
 before_action :authenticate_user!
   
     # def index 
@@ -17,31 +16,22 @@ before_action :authenticate_user!
         end
         @bought_items
 
-       #SOLD ITEMS LIST- this is just as a record reference
-        @sold_items = Array.new
-        current_user.seller_payments.each do |sold|
-          @sold_items << sold.item
-        end
-        @sold_items   
+      #  #SOLD ITEMS LIST- this is just as a record reference for future usage. 
+      #   @sold_items = Array.new
+      #   current_user.seller_payments.each do |sold|
+      #     @sold_items << sold.item
+      #   end
+      #   @sold_items   
       end
-
- 
     end  
 
     def reviews
 
       @user = User.find(params[:id])
-            #The users items list of reviews accessed via the item. 
+      #The users items list of reviews accessed via the item. 
       user_items = Item.where(user: @user)
       @user_reviews = Review.where(item: user_items)
-      
-      #  @user_reviews = Array.new
-      #  @user.items.each do |item|
-      #    if item.review.nil?
-      #    @user_reviews << item.review
-      #    end
-      #  end
-      #  @user_reviews
+   
     end
 
 
@@ -51,5 +41,5 @@ before_action :authenticate_user!
        @user = User.find(params[:id])
      end
 
-  
+
 end

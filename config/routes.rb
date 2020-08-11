@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-
   devise_for :users
   get 'users/:id', to: 'users#show'
   resources :users 
+  #user review page
   get '/users/:id/reviews', to: 'users#reviews', as: "user_reviews"
   #additional routes 
   devise_scope :user do
@@ -28,11 +28,7 @@ Rails.application.routes.draw do
  
    # REVIEWS Routes
 
-  
   resources :reviews
-  #get '/reviews/new/:item_id', to: 'reviews#new'
-  #post '/reviews/:item_id', to: 'reviews#create'
- # delete '/reviews/:item_id', to: 'reviews#destroy', as: "delete_review"
 
   # CART Routes
   get '/mycart', to: 'carts#show'

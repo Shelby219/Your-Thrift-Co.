@@ -20,7 +20,5 @@ class Item < ApplicationRecord
     validates :category_id, presence: true  
     validates :images, presence: true  
 
-
-
 end
          

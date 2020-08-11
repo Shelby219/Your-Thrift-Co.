@@ -20,7 +20,7 @@ As aforementioned sustainable and ethical fashion is not only very popular these
 
 Sustainability is also a very important quality more consumers are wanting to adopt. According to [Business Insider](https://www.businessinsider.com.au/fast-fashion-environmental-impact-pollution-emissions-waste-water-2019-10?r=US&IR=T) the equivalent of one garbage truck full of clothing is burned or dumped in landfill every second, with 85% of textiles produced going into landfill every year, which is enough to fill the whole of Sydney Harbour every year. Additionally according to [Edge Expo](https://edgexpo.com/fashion-industry-waste-statistics/), only coming second to oil, the clothing and textile industry is the largest polluter in the world. That is just a small snippet of large amounts of statistic to do with the fashion industry. That is why if consumers are willing to lessen there environmental impact by trying to be more sustainable and conscious with consuming, it has the potential to do a lot of good. 
 
-Your Thrift Co. will enable consumers another platform to buy second, and sell secondhand. Reuse, reduce, recycle. 
+Your Thrift Co. will enable consumers another platform to buy secondhand, and sell secondhand. Reuse, reduce, recycle. 
 
 -----
 ## Description of your marketplace app (website), including:
@@ -29,7 +29,7 @@ Your Thrift Co. will enable consumers another platform to buy second, and sell s
 
 The purpose of Your Thrift Co. is to be an online thrift/pre-loved/second-hand clothing platform, enabling users to register and be able to sell there own items or buy other users items. The initial application is set up directed at Women as that is the market thrift shopping is more popular in, however if the application were to be as successful as planned, expanding to the Male market would be in future. 
 
-The core design of the application also will enable Users to interact like a form of social media, just with a basis around fashion. As trends today are not just set by brand, but via individuals, so with the features of commenting and liking items also allows social interaction via our platform. So whilst some Users will operate with the intention of having just a closet clear out, other Users can operate the platform as a form of online business. The ability to build a following of users that will come to buy their particular items. 
+The core design of the application also will enable Users to interact like a form of social media, just with a basis around fashion. As trends today are not just set by brand, but via individuals, so with the future features of commenting and liking items also allows social interaction via our platform. So whilst some Users will operate with the intention of having just a closet clear out, other Users can operate the platform as a form of online business. The ability to build a following of users that will come to buy their particular items. 
 
 Another notable purpose of the application is the ability for users to, in a sense, operate a business from their bedroom. Part of the target purpose is users wanting the ability to shop secondhand online, however the other part of the target purpose is the users ability to sell their pre-loved items online. 
 
