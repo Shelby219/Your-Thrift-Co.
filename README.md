@@ -67,15 +67,25 @@ Another notable purpose of the application is the ability for users to, in a sen
 
 ### Screenshots
 
+##### Home Page
 ![Shot of Site 1](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site1.png)
+##### Nav Bar
 ![Shot of Site 2](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site2.png)
+##### Listed Items
 ![Shot of Site 3](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site3.png)
+##### Item Show Page
 ![Shot of Site 4](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site4.png)
+##### User Profile
 ![Shot of Site 5](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site5.png)
+##### My Listings
 ![Shot of Site 6](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site6.png)
+##### My Purchases
 ![Shot of Site 7](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site7.png)
+##### Edit User
 ![Shot of Site 8](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site8.png)
+##### Log In
 ![Shot of Site 9](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site9.png)
+##### Sign Up
 ![Shot of Site 10](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Site10.png)
 
 

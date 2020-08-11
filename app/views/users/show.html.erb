@@ -84,7 +84,9 @@
                                                                                 <%= bought_items.title %><br>
                                                                                 <%=number_to_currency(bought_items.price)  %>
                                                                                 </div>
-                                                                                <% if bought_items.review == true %>
+                                                                                <% unless bought_items.review.nil?%>
+                                                                                <p class = "reviewed">Reviewed!</p>
+                                                                                <% else %>
                                                                                 <%= link_to 'Review', new_review_path(item_id: bought_items.id), :class => "btn btn-outline-secondary " %>
                                                                                 <% end %>
                                                                     <% end %>

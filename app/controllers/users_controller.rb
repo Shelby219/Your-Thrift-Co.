@@ -24,6 +24,8 @@ before_action :authenticate_user!
         end
         @sold_items   
       end
+
+ 
     end  
 
     def reviews
@@ -33,6 +35,8 @@ before_action :authenticate_user!
       user_items = Item.where(user: @user)
       @user_reviews = Review.where(item: user_items)
       
+
+
       #  @user_reviews = Array.new
       #  @user.items.each do |item|
       #    if item.review.nil?
