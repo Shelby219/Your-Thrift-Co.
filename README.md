@@ -209,6 +209,7 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 - Comment belongs to :Item
 
 -----
+
 ## Discuss the database relations to be implemented in your application
 
 ### User
@@ -228,7 +229,6 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 ![ERD-Category](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/CategoryERD.png)
 
 - **Category:** This database information is just for reference within an item. This enables reference to the Categories created in the seed data. The item index pages displays items grouped via this category reference. This idea of this structure was that new categories were not needed for creation, however in future if needed they could be via seed data.
-
 
 ### Cart
 
