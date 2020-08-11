@@ -47,7 +47,7 @@ Another notable purpose of the application is the ability for users to, in a sen
 
 - Payments - This feature is via the use of Stripe API as a third party service. Once a payment is successful is then enables the creation of a payment record. This record is able to be accessed on the users profile. 
 
-- Reviews - NTH - The feature enables users to leave a review via an item purchased accessible by a user. So if a user has made a purchase from another user, the buyer can leave a review on seller and item via the item. This allows for users to maintain a review rating out of 5. A future aspect of this feature is enabling both buyers to review a seller and seller to review a buyer, instead of just via an item. 
+- Reviews - The feature enables users to leave a review via an item purchased accessible by a user. So if a user has made a purchase from another user, the buyer can leave a review on seller and item via the item. This allows for users to maintain a review rating out of 5. A future aspect of this feature is enabling both buyers to review a seller and seller to review a buyer, instead of just via an item. 
 
 #### Future
 
