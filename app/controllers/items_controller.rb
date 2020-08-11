@@ -1,23 +1,13 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
   before_action :set_user_item, only: [:edit, :update, :destroy]
-  #before_action :set_payment, only: [:show, :index]
   before_action :authenticate_user!
   
-  def item_marked_paid
-    @payment= Payment.find_by_id(params[:item_id])
-  end
-
-  def category_title
-    Category.all.each do |c_name|
-        c_name.name
-        end
-  end
   # GET /items       
   # GET /items.json
   def index
     @items = Item.all
-    #enabling the items to be categorised
+    #enabling the items to be categorised on the index page. 
     if params[:category].blank?
       @items = Item.all.order('created_at DESC')
       else
@@ -30,6 +20,7 @@ class ItemsController < ApplicationController
   # GET /items/1    
   # GET /items/1.json
   def show
+     #this is the stripe method for payment on items via the item show page. 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       customer_email: current_user.email,
@@ -60,7 +51,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    # If the user is logged in it will redirect to a new listing form, else it will redirect to sign up
+    # If the user is logged in it will redirect to a new item form, else it will redirect to sign up. This proves useful for the cart links as wel..
     if user_signed_in?
       if current_user.id
         @item = Item.new
@@ -79,9 +70,8 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
+    #creation of items via the current user. Ensures the items is allocated to the user. 
       @item = current_user.items.create(item_params)
-      #@item = Item.new(item_params)
-
     respond_to do |format|     
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
@@ -118,11 +108,11 @@ class ItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Setting item in the parameters
     def set_item
       @item = Item.find(params[:id])
     end
-
+     # Setting the users items
     def set_user_item
       id = params[:id]
       @item = current_user.items.find_by_id(id)
@@ -132,10 +122,6 @@ class ItemsController < ApplicationController
       end
     end
     
-    #def set_payment
-     # @payment= Payment.find_by_id(params[:item_id])
-     #end
-
     # Only allow a list of trusted parameters through.
     def item_params
       params.require(:item).permit(:title, :price, :description, :size, :colour, :material, :location, :shipping, :category_id, images: [] )

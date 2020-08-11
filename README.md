@@ -216,7 +216,7 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 
 ![ERD-User](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/UserERD.png)
 
-- **User:** This is the foundation database relation. It houses the core user information. 
+- **User:** This is the foundation database relation. It houses the core user information. It contains the user primary key which is the source of all authentication and authorisation via current_user. 
 
 ### Item
 
@@ -271,7 +271,6 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 
 -----
 ## Provide your database schema design
-
 
 ```
     ActiveRecord::Schema.define(version: 2020_08_10_231356) do

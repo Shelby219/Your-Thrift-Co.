@@ -1,10 +1,6 @@
 class PaymentsController < ApplicationController
-    #before_action :set_item, only: [:webhook]
     skip_before_action :verify_authenticity_token, only: [:webhook]
-   
-    #before_action :set_cart, only: [:webhook]
-   #before_action :set_payment, only: [:webhook]
-   
+  
     def success
       redirect_to items_path, notice: 'You have successfully made a payment!'
     end
@@ -21,9 +17,7 @@ class PaymentsController < ApplicationController
           p "item id " + item_id
           p "user id " + user_id
 
-          #Item.find(item_id).my_bool = true
-    #       @item = Item.find(item_id).user_id
-
+          #this is the creation of a payment via a completed webhook.
            payment = Payment.create(
                 buyer_id: user_id, #user who bought the item
                 seller_id: Item.find(item_id).user_id, #user who owns the item, taken from item 
@@ -33,13 +27,9 @@ class PaymentsController < ApplicationController
            payment.save
    
           head :ok
-   #       #status 200
+         #status 200
       end
   
-     #def set_cart
-     #   @cart = Cart.find(params[:id])
-     #end
-
      def payment_params
       params.require(:payment).permit(:buyer_id, :seller_id, :paid, :item_id )
     end

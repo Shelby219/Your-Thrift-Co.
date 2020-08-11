@@ -4,7 +4,7 @@
   
  <h2 class="heading-profile">Your Bag <br><%= link_to 'Back To Shopping', items_path, :class => "btn btn-sm btn-outline-secondary" %></h2>
  <div class=" bg-light">          
-              
+                
  <section class="container item-index-container">  
         <div class="row">
             <% @cart.cart_items.each do |cartitem| %>  
@@ -19,12 +19,16 @@
                                                         Price <%= number_to_currency cartitem.item.price %> <br>
                                                         Shipping <%= number_to_currency cartitem.item.shipping %>
                                                         </div>  
-                                            <% end %>
+                                            <% end %>  
                                         
                                         
                                               <p class = "remove-buy-cartitem">  
-                                                      <%= link_to 'Remove', delete_item_path(cartitem), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>   
+                                                      <%= link_to 'Remove', delete_item_path(cartitem), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>  
+                                                <% if cartitem.item.payment != nil && cartitem.item.payment.paid == true  %>  
+                                                <p class = "sold">SOLD</p>
+                                                <% else %>  
                                                       <%= link_to 'Buy Item', item_path(cartitem.item), class: "btn btn-sm btn-outline-secondary" %>   
+                                                <% end %>
                                               </p>   
                                 </div>   
                     </div>   

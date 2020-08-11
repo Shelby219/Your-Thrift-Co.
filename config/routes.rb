@@ -29,8 +29,6 @@ Rails.application.routes.draw do
   post "/payments/webhook", to: "payments#webhook"
 
   
-  
-
   get '/mycart', to: 'carts#show'
   post '/cart/:item_id', to: 'carts#create', as: "cart"
   delete '/cart/item/:item_id', to: 'carts#destroy', as: "delete_item"
