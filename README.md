@@ -111,7 +111,7 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 - Balsamiq (wireframe mockups)
 - Unsplash (free stock images)
 - Trello.com (project management, user stories)
-- Lucid chart (Entity Relationship Diagram)
+- Lucid chart (Entity Relationship Diagram)   
 - Powerpoint (Slide deck presentation)
 
 -----
@@ -149,7 +149,7 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 - As a User I want to leave comments on items
 - As a User I want to like other user's items 
 - As a User I want to follow other users and have them follow me
-- As a User I want to leave a review on a user that has bought an item from me
+
 - As a User Selling I want to receive a email when I have sold an item
 - As a User Buyer I want to received order confirmation and shipping confirmation
 - As a User viewing my bag, items are grouped via seller, with the ability to bulk purchase from a user selling.
@@ -237,9 +237,7 @@ Your Thrift Co. is a two-sided marketplace created via Ruby on Rails using the M
 
 - **Amazon Web Services:** This Ruby Gem was installed to be able to manage image uploading on the application via Amazon Web Services. This function is used for item listing creation and also for Users being able to upload an Avatar.
 
-- **Stripe:** This Ruby Gem was installed to allow and manage payments for items listed. Stripe API provides secure payment services which are handle outside of the application. Not done in this assignment, however Stripe does allow for management of funds within a Stripe account, so when a User purchases an item, Stripe would allow the ability to forward those funds to the seller. 
-
-- **Pg_search:** This Ruby Gem was installed to enable a search function for items listing, searches will produce results based on title, description, colour, material and size. 
+- **Stripe:** This Ruby Gem was installed to allow and manage payments for items listed. Stripe API provides secure payment services which are handle outside of the application. Not done in this assignment, however Stripe does allow for management of funds within a Stripe account, so when a User purchases an item, Stripe would allow the ability to forward those funds to the seller.  
 
 -----
 ## Describe your projects models in terms of the relationships (active record associations) they have with each other

@@ -29,14 +29,12 @@ before_action :authenticate_user!
     end  
 
     def reviews
-      #The users items list of reviews accessed via the item. 
+
       @user = User.find(params[:id])
-      #
+            #The users items list of reviews accessed via the item. 
       user_items = Item.where(user: @user)
       @user_reviews = Review.where(item: user_items)
       
-
-
       #  @user_reviews = Array.new
       #  @user.items.each do |item|
       #    if item.review.nil?
