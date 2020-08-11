@@ -64,9 +64,6 @@ gem 'bootstrap', '~> 4.5.0'
 gem "devise", "~> 4.7"
 gem 'simple_form'
 gem "aws-sdk-s3", require: false
-
-
-
 gem "stripe", "~> 5.22"
 gem 'ultrahook'
 gem 'pg_search'

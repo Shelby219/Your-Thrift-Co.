@@ -144,7 +144,16 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 ![Tablet Wireframes](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Tablet.png)
 ### Desktop Wireframes
 ![Desktop Wireframes](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Desktop.png)
-
+### Larger Wireframes
+![Shot of Nav Bar](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Navbar.png)
+![Shot of Footer](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Footer.png)
+![Shot of Home](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Homepage.png)
+![Shot of Sign Up](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Signuppage.png)
+![Shot of Log In](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Loginpage.png)
+![Shot of Categories](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Categoriespages.png)
+![Shot of Item Page](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Itempage.png)
+![Shot of User Page](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Userpage.png)
+![Shot of User Page](https://github.com/Shelby219/Your-Thrift-Co./blob/master/docs/Shoppingbagpage.png)
 -----
 ## An ERD for your app
 
@@ -204,7 +213,7 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 ### Nice to have features not yet implemented 
 
 - User has many :comments, through :items
-- Item has many :comments, dependent: :destroy #item.comments.create(comment_params) will work
+- Item has many :comments, dependent: :destroy 
 - Comment belongs to :User
 - Comment belongs to :Item
 
@@ -399,7 +408,7 @@ end
 -----
 ## Describe the way tasks are allocated and tracked in your project
 
-* [Trelloboard](https://trello.com/b/S6sdFZNw/yourthriftco) - Link to Trello Board
+* [Trelloboard](https://trello.com/invite/b/S6sdFZNw/5a65aa15a45ab1ef10e158c5254235dc/yourthriftco) - Link to Trello Board
 
 Trello was used as the primary way of tracking the details of this project.
 
