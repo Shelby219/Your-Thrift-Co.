@@ -1,4 +1,4 @@
-class Payment < ApplicationRecord
+class Payment < ApplicationRecord  
 
     belongs_to :item
     

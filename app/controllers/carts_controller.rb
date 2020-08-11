@@ -5,7 +5,7 @@ class CartsController < ApplicationController
    
    def show
   
-   end
+   end   
    
    def create
     #checking if cart items already include the item in the parameters. Then notifying if already in bag so double up does not happen.

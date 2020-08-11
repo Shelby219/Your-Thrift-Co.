@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
   
   # GET /items       
-  # GET /items.json
+  # GET /items.json   
   def index
     @items = Item.all
     #enabling the items to be categorised on the index page. 

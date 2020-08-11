@@ -10,7 +10,7 @@
 <div class = "main-inner-text" >
             <h2><%= @user.username %></h2><br>
             <%= @user.city %><br>
-            <%= @user.state %><br>
+            <%= @user.state %><br>  
             <% if(current_user && current_user.id && (current_user.id == @user.id)) %>
              <%= @user.email %>
             <% end %>
@@ -64,14 +64,14 @@
                     <%end%>
                 </div>
             </section>
-<%end%>
+<%end%>    
 
 <hr class="featurette-divider">
 <% if(current_user.id == @user.id) %>
    <h2 class="heading-profile "> My Purchases</h2>
 
         <% if @bought_items.empty?  %>
-        <h4>No Purchases </h4>     
+        <h4>No Purchases </h4>        
         <%else%>
                 <section class="container item-index-container">
                 <div class="row">

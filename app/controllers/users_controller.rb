@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:edit, :update, :destroy]
-    before_action :set_user_item, only: [:edit, :update, :destroy]
+    #before_action :set_user, only: [:edit, :update, :destroy]
+    #before_action :set_user_item, only: [:edit, :update, :destroy]
     before_action :authenticate_user!
   
-    def index 
-    @users = User.all 
-    end
-        
+    # def index 
+    # @users = User.all 
+    # end
+
     def show     
       @user = User.find_by_id(params[:id]) 
       
@@ -25,24 +25,24 @@ class UsersController < ApplicationController
         end
         @sold_items
       end
-  
+     
     end  
 
    
     private
-    # Setting the user for updating user details
-    def set_user
-      @user = User.find(params[:id])
-    end
+  #   # Setting the user for updating user details
+  #   def set_user
+  #     @user = User.find(params[:id])
+  #   end
 
-   # Setting the user item 
-    def set_user_item
-      id = params[:id]
-      @item = current_user.items.find_by_id(id)
+  #  # Setting the user item 
+  #   def set_user_item
+  #     id = params[:id]
+  #     @item = current_user.items.find_by_id(id)
   
-      if @item == nil
-          redirect_to item_path
-      end
-    end
+  #     if @item == nil
+  #         redirect_to item_path
+  #     end
+    #end
   
 end

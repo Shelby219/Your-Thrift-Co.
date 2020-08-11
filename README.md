@@ -13,8 +13,6 @@
 
 The idea of Your Thrift Co. comes from a love of vintage and thrift shopping. In this day and age there is so much propaganda and popularity around sustainability and ethical fashion, in that people are simply trying to consume less or being more conscious consumers. Fast fashion is definitely taking a back seat with so many sustainable and ethical brands coming up. Although this is not the most affordable way to shop, especially when consumers have limited budgets. That is where buying pre-loved, second hand items is very popular. Whilst there are physical thrift shops all around the world, and all around Australia, online shopping is taking precedence. Whilst in USA and UK there are a selection of pre-loved clothing online marketplaces, Australia seems to have been left behind with not a lot available for use within Australia or simply without enough Australian users for it to operate at full potential. That is where the idea Your Thrift Co. came to be. An online pre-loved, second-hand clothing/item marketplace started in Australia. Of course the idea of expanding to world-wide in future is there, there is a gap in the market for an Australian owned and operated thrift marketplace. Initially the application is targeted towards Women, with the plans for expansion in future. 
 
-
-
 -----
 ## 	Why is it a problem that needs solving?
 
@@ -37,6 +35,8 @@ Another notable purpose of the application is the ability for users to, in a sen
 
 ### Functionality / features
 
+#### Current
+
 - Users - This main feature is where the user is able to sign up to an account, after doing so be able to log in and/or edit account details. The user is also able to view a profile dashboard in which they can see items that they have sold or have purchased. Other users can view other user dashboards also, however they can only view what the user has for sale and any reviews. 
 
 - Items - This functionality involves a few components. The user once logged in is able to browse through items by category and view them either via category pages, or individually and also via clicking on a user profile the items up for sale by that user will be available. 
@@ -45,15 +45,21 @@ Another notable purpose of the application is the ability for users to, in a sen
  
 - Shopping Bag - The feature enables users to when viewing items, to add them to their shopping bags. The shopping bag will work via displaying the items the user would like to purchase, grouping them via seller (which is a future plan). Then displaying a button to purchase each item. The idea will be the user can purchase groups of items grouped together via seller, however this feature will be for future. 
 
-- Comments - NTH - This feature enables users to leave comments on item listings. 
+- Payments - This feature is via the use of Stripe API as a third party service. Once a payment is successful is then enables the creation of a payment record. This record is able to be accessed on the users profile. 
 
-- Followers - NTH - This feature enables users to follow other users. 
+- Reviews - NTH - The feature enables users to leave a review via an item purchased accessible by a user. So if a user has made a purchase from another user, the buyer can leave a review on seller and item via the item. This allows for users to maintain a review rating out of 5. A future aspect of this feature is enabling both buyers to review a seller and seller to review a buyer, instead of just via an item. 
 
-- Likes on Items - NTH - This feature enables users to like items that are listed. This enables the user to then via a list of liked items. 
+#### Future
 
-- Reviews - NTH - The feature enables users to leave a review via a completed purchase on other users. So if a user has made a purchase from another user, the seller can leave a review on the buyer and vise versa. This allows for users to maintain a review rating out of 5 stars. 
+- Comments - This feature enables users to leave comments on item listings. 
 
-- Search Function- NTH- This feature enables users to search for items in a search bar, using results from title, description, material, colour and size.
+- Followers - This feature enables users to follow other users. 
+
+- Likes on Items - This feature enables users to like items that are listed. This enables the user to then via a list of liked items. 
+
+- Search Function- This feature enables users to search for items in a search bar, using results from title, description, material, colour and size.
+
+- Mail Transactions- The ability of successful transaction mailing. 
 
 ### Sitemap
 
@@ -113,6 +119,7 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 - As a User viewing my bag, items are group by the seller. With purchase buttons under each item.
 - As a User I should be able to make a purchase of an item.
 - As a User I should be able to see my items (receipts) Sold and my items purchases as separate lists.
+- As a User I want to leave reviews on a user when I make a purchase
 
 #### Authentication & Authorisation:
 
@@ -128,7 +135,6 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 - As a User I want to leave comments on items
 - As a User I want to like other user's items 
 - As a User I want to follow other users and have them follow me
-- As a User I want to leave reviews on a user when I make a purchase
 - As a User I want to leave a review on a user that has bought an item from me
 - As a User Selling I want to receive a email when I have sold an item
 - As a User Buyer I want to received order confirmation and shipping confirmation
@@ -162,12 +168,59 @@ This generation is also one for bedroom entrepreneurship and 'side hustling', th
 -----
 ## Explain the different high-level components (abstractions) in your app
 
+Your Thrift Co. is a two-sided marketplace created via Ruby on Rails using the Model View Controller (MVC) architecture. All care was taken to ensure the data storage remains via the model, with the core logic on the controllers and then the views housing the application views for the user interface. The application works via a request being sent via the router, which then calls the controller to action. The controller will then pass the request to the Model in which the Model will retrieve the data from the database and then return it to the Controller. From there the controller will pass that information to the View which ultimately gets rendered as a HTML file on the user interface. 
+
+### Models
+
+- **User:** This model was generated via the Devise Gem. It enables the application the authenticate a user via inbuilt Devise methods. This model houses attached relations which are having many items, having one avatar, owning one cart and having many buyer and seller payments. This model also houses validation to do with username and uniqueness. 
+
+- **Item:** This model houses all the data to do with a users listed items. This model also handles the validation for the data held by an item. This model belongs to a user model and also belongs to the category belong. Items are allocated via categories. This model can have many images attached, as a listed item can house many images. It has many cart_items via a joint table between cart and items, this an item can be many cart items as an item can be saved in multiple users carts, which is why an item can have many carts through cart_items. 
+
+- **Category:** This model is simply for usage with items. An item has one category and categories can house many items. 
+
+- **Cart:** This model belongs solely to a user. A user keeps their own cart once they have an account. This method was determined as best, as a session cart was not necessary right now as a user cart is just for housing items wanting to purchase. So a user is able to keep the same cart at all times even on logging out and back in. The cart then holds all the items via cart_items. This means items can be removed from a cart, without connecting deletion with the actual item. 
+
+- **Cart_item:** This model belongs to a cart and an item, this being a joint table. 
+
+- **Payment:** This model is in place for a payment to belong to one item. Then the payment can belong to a buyer via the buyer_id of the payment connected to the current_user id and the payment can belong to a seller via the item purchased user that owns the item. 
+
+### Controllers
+
+- **Application:** The main use of this controller is its connected to the Devise Gem and the able to configure the parameters for user creation, log in and account updating. 
+
+- **Users:** This controller is utilised for a user profile showing. 
+
+- **Items:** This controller contains the core application actions. In listing an item for sale via the user logged in. An item can be created, saved, edited, and deleted. The show method contains the parameters for use of Stripe API for purchasing. The index method contains the parameters for allocated items for indexing by Category. 
+
+- **Pages:** This controller is simple and is just in place for the use of static pages with no data accessibility needed. 
+
+- **Carts:**  This controller houses the methods for a users cart. On a user account creation and/or sign in a cart is created and allocated to a user. This cart remains attached to the user as long as the user has an account. It holds the parameters for finding the item via the routing parameters which then is able to be added to a cart as a cart_item. It houses the methods for not being able to add two of the same items to the cart, and also the methods for deleting an item from a cart. 
+
+- **Payments:** This controller has the purposes of enabling the creation of payments. This is done via the use of Stripe API on a item for payment, then via a webhook (via Ultrahook) a payment is created with some of the data taken from the webhook. The balance of the data being the current_user as the buyer and the items owner as the seller. This payment creation means that items are able to be marked as paid via the paid boolean in the payment data. 
+
+### Views
+
+- **Application:** This view contains any scripting tags required in the header, along with the alert and notice code for when notices are rendered. It houses the shared navigation bar view and the shared footer. Most important holds the method of yield in the body which displays the core application HTML views when called. 
+
+- **Devise:** This collection of views are created via Devise when the gem is installed. They house all the code related to the Devise views for sign up, log in, account editing, confirmations, links and more. These views is what is displayed when the relevant user path and user session paths are called. 
+
+- **Users:** This view is just a show view for the user profile. Its purpose is the display a user dashboard which houses a collection of items the user has posted along with any purchases made. Certain data is only made visible to the user logged in for privacy reasons, however the core outline of the profile can be viewed by anyone. 
+
+- **Items:** This collection of views is made up the primary form, edit, index, new and show views pertaining to an item. The form being the bases for a new item creation and also editing a listed item. With index display all items (via Category allocation per the controller) and finally the show displayed a single item. 
+
+- **Pages:** This is a collection of static page views, no data is needed for these pages in the controller, therefore the view is primarily html code. 
+
+- **Carts:** This view is a show view for a users cart. It enables a user that is logged in to view their own cart items they have saved for purchases. 
+
+- **Payments:**  This view is a simple payment success page, which on a successful payment on Stripe gets rendered. 
+
+
 
 
 -----
 ## Detail any third party services that your app will use
 
-- **Bootstrap:** This Ruby Gem was installed and utilised for front-end styling. 
+- **Bootstrap:** This Ruby Gem was installed and utilised for front-end styling. It enables quick and easy front end styling along with useful JavaScript plugins to further enhance the application. 
 
 - **Devise:** This Ruby Gem was installed to handle user authentication and user account creation. The ability of the current_user method meant that authorisation and authentication within the application is possible. Users can create an account using their email, a username and a password that Devise authenticates. Once an account is created and logged in, the user can also add additional details such as an avatar and address details, the Devise Gem was easily configured to allow for additional parameters for accounts and account management. 
 

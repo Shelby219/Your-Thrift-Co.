@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
       redirect_to items_path, notice: 'You have successfully made a payment!'
     end
  
-     def webhook
+     def webhook   
    p params
           payment_id= params[:data][:object][:payment_intent]
           payment = Stripe::PaymentIntent.retrieve(payment_id)
